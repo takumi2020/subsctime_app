@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: subsctime_app_production
-  username: subsctime_app
-  password: <%= ENV['SUBSCTIME_APP_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
