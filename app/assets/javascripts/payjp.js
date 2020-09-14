@@ -1,6 +1,7 @@
 $(window).bind("load", function(){
   if (document.URL.match(/cards/)) {
-    var payjp = Payjp(gon.payjp_access_key)
+    var payjp = Payjp('pk_test_92a7d8f9bdc9e0c5575bdbb0')
+      // Payjp('gon.payjp_access_key') Payjp('pk_test_92a7d8f9bdc9e0c5575bdbb0')
     var elements = payjp.elements();
     var numberElement = elements.create('cardNumber');
     var expiryElement = elements.create('cardExpiry');

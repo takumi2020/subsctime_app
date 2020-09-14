@@ -10,7 +10,9 @@ gem 'mysql2', '>= 0.4.4'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5'
+# gem 'sass-rails', '~> 5'
+gem 'sassc-rails'
+
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -78,6 +80,6 @@ gem 'dotenv-rails'
 gem "gretel"
 gem 'pry-rails'
 gem 'dotenv'
-gem 'gon'   #Gem を使用して環境変数を JS に渡します。
+# gem 'gon'   #Gem を使用して環境変数を JS に渡します。
 gem 'kaminari' #ページネーション
 gem "font-awesome-sass"
