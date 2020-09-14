@@ -62,3 +62,22 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :production do 
   gem 'unicorn'
 end
+
+#追加ここから
+gem 'carrierwave'
+gem 'fog-aws'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+gem "haml-rails"
+gem 'mini_magick'
+gem "jquery-rails"
+gem 'payjp'
+gem 'dotenv-rails'
+gem "gretel"
+gem 'pry-rails'
+gem 'dotenv'
+gem 'gon'   #Gem を使用して環境変数を JS に渡します。
+gem 'kaminari' #ページネーション
+gem "font-awesome-sass"

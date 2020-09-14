@@ -1,0 +1,31 @@
+
+- if user_signed_in?
+  .mypageheader
+    .mypageheaderTop
+      =link_to "SubscTime", root_path, class: 'mypageheaderTopto'
+      =link_to destroy_user_session_path, method: :delete, class: 'mypageheaderTopOut' do
+        ログアウト
+      
+      = link_to new_product_path, class: 'mypageheaderTopNew'  do
+        出品する
+    .mypageheaderSearch
+      = form_with(url: search_products_path, local: true, method: :get, class: "mypageheaderSearchbox") do |form| 
+        = form.text_field :keyword, placeholder: "商品を検索する　　　例）iPad.....etc", class: "mypageheaderSearchbox__text", autocomplete: "off"
+        = form.submit "検索", class: "mypageheaderSearchbox__btn"
+  %p.notice= notice
+  %p.alert= alert
+- else
+  = link_to "ログイン", new_user_session_path, class: "mypageheaderTopOut"
+  = link_to "新規登録", new_user_registration_path, class: "mypageheaderTopNew"
+
+.search 
+- @products.each do |product|
+  .searchproduct
+    .searchproductList
+    = link_to product_path(product.id) do
+      = image_tag product.img.thumb.url, class: 'searchproductList-img'
+      .searchproductListfoot
+        -# .productListfoot-name
+        -#   = product.product_name
+        .searchproductListfoot-price
+          = "¥#{product.price.to_s(:delimited, delimiter: ',')}"

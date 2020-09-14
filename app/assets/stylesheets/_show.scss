@@ -1,0 +1,123 @@
+$sfont-size: 25px;
+// 詳細画面のCSS show.html
+.show {
+  padding-top: 180px;
+  max-width: 1200px;
+  margin: 0 auto;
+  &Product {
+    display: flex;
+    &-left_image {
+      width: 580px;
+      height: 580px;
+      object-fit: cover;
+      border: 1px solid #ccc;
+    }
+    &-mainTop {
+      padding-left: 70px;
+      // width: 500px;
+      // height: 400px;
+      // background-color: skyblue;
+      &_name {
+        margin-top: 45px;
+        margin-bottom: 30px;
+        font-size: $sfont-size;
+        font-weight: 600;
+        max-width: 348px;
+      }
+      &_price {
+        font-size: $sfont-size;
+        & .mainprice {
+          font-size: 18px;
+          padding-bottom: 50px;
+        }
+      }
+      &_count {
+        & .title {
+          margin-top: 50px;
+          margin-bottom: 10px;
+          font-size: 12px;
+        }
+      }
+      
+    }
+  }
+}
+  
+.from_price {
+  width: 100px;
+    height: 38px;
+    border: 2px solid #ddd;
+    display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+// 詳細の中のコメント
+/* 左右 */
+.b-left-wrapper{
+  line-height: auto;
+  margin: 0 auto 10px; /* 後続要素との距離は10px */
+  // width: 100%;
+  min-height: 10px; /* アイコン画像の高さと同じ数値を入れます */
+  &__name{
+    color: #204051;
+    text-direction: none;
+    padding-bottom: 20px;
+    width: 100px;
+  }
+}
+.b-left-wrapper__name{
+  width: 100px;
+  display: inline-block;
+
+}
+.comment.show{
+  text-align: center;
+  height: auto;
+  padding: 5px 20px;
+  color: #84a9ac;
+}
+/* 左 */
+.b-left-wrapper {
+  padding-left: 100px; /* アイコン画像の横幅+吹き出しまでの距離 注意1 */
+}
+
+/* 左右吹き出し共通 */
+.b-left {
+  display: inline-block;
+  width: 100%;
+  max-width: 400px; /* 吹き出しの横幅最大値指定 */
+  background-color: white; /* 吹き出し背景色 */
+  border: 2px solid rgb(240,240,240); /* 吹き出しボーダー色 */
+  border-radius: 10px;
+  padding: 10px 15px;
+  position: relative;
+  text-align: left;
+}
+
+
+/* 左右吹き出し角部分共通 */
+.b-left:before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: white; /* 吹き出し背景色と同じ色を指定 */
+  border-bottom: 2px solid rgb(240,240,240); /* 吹き出しボーダー色と同じ色を指定 */
+  position: absolute;
+  top: 15px; /* 角の位置 吹き出し上辺から15px下 */
+}
+
+/* 左吹き出し角部分 */
+.b-left:before {
+  border-left: 2px solid rgb(240,240,240); /* 吹き出しボーダー色と同じ色を指定 */
+  left: -8px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

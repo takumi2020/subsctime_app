@@ -1,0 +1,28 @@
+%p.notice= notice
+%p.alert= alert
+.signmain  
+  .container
+    %h1 SubscTime
+    %h2 Log in
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      
+      %fieldset.form-fieldset.ui-input.__second
+        = f.email_field :email, autofocus: true, autocomplete: "off", tabindex: "0"
+        %label{for: "email"}
+          %span{"data-text" => "E-mail Address"} E-mail Address
+      %fieldset.form-fieldset.ui-input.__third
+        = f.password_field :password, autocomplete: "current-password"
+        %label{for: "new-password"}
+          %span{"data-text" => "New Password"} New Password
+      - if devise_mapping.rememberable?
+        .field
+          = f.check_box :remember_me
+          = f.label :remember_me
+      .form-footer
+        = f.submit 'Login', class: "btn"
+      .form-footer
+        - resource_class.omniauth_providers.each do |provider|
+          = link_to image_tag('googlein.png', width: '200px'), omniauth_authorize_path(resource_name, provider), class: 'goooglein'
+      
+        

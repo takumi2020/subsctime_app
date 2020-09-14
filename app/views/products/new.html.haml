@@ -1,0 +1,25 @@
+
+- if user_signed_in?
+  .Newheader
+    .NewheaderTop
+      =link_to "SubscTime", root_path, class: 'NewheaderTopto'
+      =link_to "マイページ", "/users/#{current_user.id}", class: 'NewheaderTopMypage'
+.text
+  .textto
+    = form_with(model: @product, html:{class: "texttoFor"}, local: true) do |f| 
+      = label :product_name, '商品名入力',class: 'texttoFor-lName labe' 
+      %span.span 必須
+      %p= f.text_field :product_name, placeholder: '商品名', class: 'texttoFor-name', autocomplete: "off"
+      = label :description, '商品詳細',class: 'texttoFor-ldes labe'
+      %span.span 必須
+      %p= f.text_area :description, placeholder: "商品の説明 \n\n例）ここに商品の仕様を記入します", class: 'texttoFor-de', autocomplete: "off", row: '7'
+      = label :price, '価格',class: 'texttoFor-lprice labe'
+      %span.span 必須
+      %p
+        ¥
+        = f.text_field :price, placeholder: "4,000", id:"product_price", class: 'texttoFor-price', autocomplete: "off"
+      = f.label :img, '画像', class: 'texttoFor-limg labe'
+      %span.span 必須
+      %P= f.file_field :img, class: "image, texttoFor-img", accept: 'img/jpeg,img/gif,img/png'
+      = f.submit "出品する",class: 'textFor-btn'
+
