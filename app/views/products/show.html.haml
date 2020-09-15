@@ -15,6 +15,11 @@
           %p.title 数量
           = form_for(@product) do |f|
             = f.text_field :price, class: 'from_price'
+            = button_tag type: 'submit', class: 'submitbtn' do
+              %span 
+                = icon('fas', 'shopping-cart', class: "cart__icon")
+                カートに入れる
+            -# = f.submit "カートに入れる", class:"submitbtn", id: "submit_btn"
         -# .showProduct-mainTop_input
         -#   = @product.description
       .showProduct-main-footer
