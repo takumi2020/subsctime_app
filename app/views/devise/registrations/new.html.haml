@@ -13,13 +13,14 @@
         %label{:for => "email"}
           %span{"data-text" => "E-mail Address"} E-mail Address
       %fieldset.form-fieldset.ui-input.__third
-        = f.password_field :password, autocomplete: "new-password"
+        = f.password_field :password, autocomplete: "new-password", class: 'password'
         %label{:for => "new-password"}
           %span{"data-text" => "New Password"} New Password
       %fieldset.form-fieldset.ui-input.__fourth
-        = f.password_field :password_confirmation, autocomplete: "new-password"
+        = f.password_field :password_confirmation, autocomplete: "new-password", class: 'password'
         %label{:for => "repeat-new-password"}
           %span{"data-text" => "Repeat New Password"} Repeat New Password
+          %i#passEye.far.fa-eye
       .form-footer
         = f.submit 'Create Account', class: "btn"
       -# %button.btn Create Account

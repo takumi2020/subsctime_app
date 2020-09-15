@@ -83,3 +83,4 @@ gem 'dotenv'
 # gem 'gon'   #Gem を使用して環境変数を JS に渡します。
 gem 'kaminari' #ページネーション
 gem "font-awesome-sass"
+gem 'active_hash'

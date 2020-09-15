@@ -7,11 +7,15 @@ class User < ApplicationRecord
           # :trackable,
 
   validates :name, presence: true
-  has_many :products
-  has_many :cards
+  validates :email, presence: true, uniqueness: { case_sensitive: true }, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/i }
+  validates :password, presence: true, length: { minimum: 7 }, format: { with: /(?=.*\d+.*)(?=.*[a-zA-Z]+.*)./ }
 
-  validates :name, presence: true #追記
-  # validates :profile, length: { maximum: 200 } #追記
+  has_many :products
+  has_many :comments
+  
+  has_one :cards
+  has_one :address
+    
   
   def self.find_for_google_oauth2(auth)
     user = User.where(email: auth.info.email).first

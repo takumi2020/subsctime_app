@@ -1,46 +1,12 @@
-- if user_signed_in?
-  .mypageheader
-    .mypageheaderTop
-      =link_to "SubscTime", root_path, class: 'mypageheaderTopto'
-      =link_to destroy_user_session_path, method: :delete, class: 'mypageheaderTopOut' do
-        ログアウト
-      = link_to new_product_path, class: 'mypageheaderTopNew'  do
-        出品する
-    .mypageheaderSearch
-      = form_with(url: search_products_path, local: true, method: :get, class: "mypageheaderSearchbox") do |form| 
-        = form.text_field :keyword, placeholder: "商品を検索する    例）iPad.....etc", class: "mypageheaderSearchbox__text", autocomplete: "off"
-        = form.submit "検索", class: "mypageheaderSearchbox__btn"
-  %p.notice= notice
-  %p.alert= alert
-- else
-  %p= link_to "ログイン", new_user_session_path, class: "#"
-  %p= link_to "新規登録", new_user_registration_path, class: "#"
-  
-
-
-.mypage 
-- @products.each do |product|
-  .mypageproduct
-    .mypageproductList
-    = link_to product_path(product.id) do
-      = image_tag product.img.thumb.url, class: 'mypageproductList-img'
-      .mypageproductListfoot
-        -# .productListfoot-name
-        -#   = product.product_name
-        .mypageproductListfoot-price
-          = "¥#{product.price.to_s(:delimited, delimiter: ',')}"
-
-
+.headerTop
+  = link_to root_path,"data-turbolinks": false  do
+    = image_tag 'logo_subsctime.png', class: 'logo-img',width: '150px'
 .profile-header
   %h1 プロフィール変更
 .profile-detail
-  = form_with(model: @user, url: user_registration_path, method: :PATCH, html:{class: "personal-input-form"}, local: true) do |f|
-    .profile-name
-      .profile-name-detail
-        .profile-name__img
-          -# = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", height: "50", width: "50", class: "user-img"
-          = f.file_field :image_name
-          .profile-name__form
-            = f.text_field :name
-    .form-group
-      = f.submit "変更する", class: "btn-default"
+  = render partial: "users/address"
+  .next
+    = f.submit '登録', class: "nextbtn"
+
+= link_to destroy_user_session_path, method: :delete, class: 'headerTopOut' do
+  ログアウト
