@@ -1,6 +1,49 @@
-.top
-  .box
-    .form
-      %h2.top__text
-        住所入力
-      = render partial: "users/address"
+.newAdWrapper
+  .newAdHeader
+    .newAdHeader--title
+      title
+    .newAdHeader--logout
+      = link_to destroy_user_session_path, method: :delete, class: 'headerTopOut' do
+        ログアウト
+  .newAdMain
+    .newAdMain--title MyAccount
+    .newAdMain--content
+      .newAdMain--content__title 会員情報
+      .newAdMain--contentFrom
+        .newAd 
+          = form_with(model: @address,  html:{class: "personal-input-form"}, local: true) do |f|
+            =render "devise/shared/error_messages", resource: @address
+            .form_text
+              = f.label :お名前
+              %span.textimage 必須
+              = f.text_field :name,{autofocus: true, placeholder: "山田 太郎", class: 'input-text'}
+            .form_text
+              = f.label :フリガナ 
+              %span.textimage 必須
+              = f.text_field :name_kana,{autofocus: true, placeholder: "ヤマダ  タロウ", class: 'input-text'}
+            .form_text
+              = f.label :郵便番号 
+              %span.textimage 必須
+              = f.text_field :postal_code,{autofocus: true, placeholder: "1234567", class: 'input-text',id: 'code'}
+            .form_text
+              = f.label :都道府県
+              %span.textimage 必須
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"}, {class: 'input-text'}
+            .form_text
+              = f.label :市町村
+              %span.textimage 必須
+              = f.text_field :city, autofocus: true, placeholder: "□□市□□町", class: 'input-text'
+            .form_text
+              = f.label :番地
+              %span.textimage 必須
+              = f.text_field :house_number, autofocus: true, placeholder: "□□1-12", class: 'input-text'
+            .form_text
+              = f.label :建物名
+              %span.textimage#free 任意
+              = f.text_field :building_name, autofocus: true, placeholder: "Aビル315", class: 'input-text'
+            .form_text
+              = f.label :電話番号
+              %span.textimage 必須
+              = f.text_field :tell, autofocus: true, placeholder: "09012345678", class: 'input-text'
+            .from_btn
+              = f.submit '登録', class: "editbtn"

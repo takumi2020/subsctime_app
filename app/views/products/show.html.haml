@@ -3,7 +3,7 @@
 .show
   .showProduct
     .showProduct-left
-      = image_tag @product.img.thumb.url, class: 'showProduct-left_image'
+      = image_tag @product.img.url, class: 'showProduct-left_image'
     .showProduct-main
       .showProduct-mainTop
         .showProduct-mainTop_name
@@ -18,23 +18,46 @@
             = button_tag type: 'submit', class: 'submitbtn' do
               %span 
                 = icon('fas', 'shopping-cart', class: "cart__icon")
-                カートに入れる
-            -# = f.submit "カートに入れる", class:"submitbtn", id: "submit_btn"
-        -# .showProduct-mainTop_input
-        -#   = @product.description
-      .showProduct-main-footer
-        .showProduct-main-footer_btn
-          -# - if user_signed_in?
-          -#   = form_with url: "#" do
-          -#     :plain
-          -#       %script.payjp-button{type:"text/javascript",  src: "https://checkout.pay.jp",  class: "payjp-button" data-key :"pk_test_92a7d8f9bdc9e0c5575bdbb0"}
-          -#     -#           %form{action: "/card/pay", method: "post"}
-          -#     -# %script.payjp-button{"data-key" => "pk_test_92a7d8f9bdc9e0c5575bdbb0", src: "https://checkout.pay.jp/"}
-        .showProduct-main-footer_edit
-          - if user_signed_in? && current_user.id === @product.user_id
-            = link_to edit_product_path do
-              .footedit{style: "background-color: #84a9ac;"} 編集
-        
+                購入する
+  .show-content
+    .show-content__title 特徴
+    .show-content__text
+      %ul
+        %li
+          = image_tag 'sample.png', width: '500px'
+        %li
+          = image_tag 'sample.png', width: '500px'
+      .explain 
+        ハードな作業も、サクサクこなそう。
+        %ul
+          %li
+            = image_tag 'sample.png', width: '500px'
+          %li
+            = image_tag 'sample.png', width: '500px'
+      .explain 
+        こんなにもバッテリーが持ち待ちます
+    .show-content__title 仕様
+    .tableshow
+      .show__img 
+        = image_tag @product.img.url, width: '250px'
+      .show__table
+        .resource
+          %table
+            %tr
+              %td  色
+              %td  グロスホワイト
+            %tr
+              %td  実容量
+              %td 200ml
+            %tr
+              %td 生産国
+              %td 日本
+            %tr
+              %td 材質
+              %td 磁気
+
+
+
 
   .showComment
     - if current_user
@@ -43,7 +66,7 @@
         = form.submit "コメント", class: 'showComment__btn'
     - else
       %strong
-        %p ※ コメントの投稿には新規登録/ログインが必要です ※
+  -#       %p ※ コメントの投稿には新規登録/ログインが必要です ※
         
 
   .showProduct-comments
@@ -56,14 +79,5 @@
           .b-left
             = comment.text
 
-
-
-= link_to root_path do
-  戻る
-
-
--# .showProduct-comment
--#           .b-left-wrapper
--#           = link_to comment.user.name, "/users/#{comment.user_id}", class: 'b-left-wrapper__name'
--#           .b-left
--#             = comment.text
+= link_to edit_product_path do
+  編集

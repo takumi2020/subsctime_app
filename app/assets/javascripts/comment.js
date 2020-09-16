@@ -10,7 +10,7 @@ $(function () {
                     </div>`
     return html;
     }
-    $('#new_comment').on('submit', function (e) {
+    $('.showComment__btn').on('submit', function (e) {
       e.preventDefault();
       let fromData = new FormData(this);
       let url = $(this).attr('action')

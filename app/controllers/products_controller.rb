@@ -53,12 +53,7 @@ class ProductsController < ApplicationController
     @comments = @product.comments.includes(:user)
   end
 
-  def search
-    @products = Product.search(params[:keyword])
-  end
-  
-  
-  
+
   
   
   private

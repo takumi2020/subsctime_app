@@ -2,8 +2,9 @@ class UsersController < ApplicationController
   before_action :set_address, only: [:show, :edit]
 
 
-  # def show
-  # end
+  def show
+    # redirect_to root_path
+  end
   
   # def edit
   #   if @address.update(address_params)

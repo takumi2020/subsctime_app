@@ -11,8 +11,6 @@ $tfont-size: 28px;
     left: 0;
     width: 100%;
     z-index: 10;
-    // padding: 0 40px;
-    // box-sizing: border-box;
     & .hdrInnerWrap {
     max-width: $imax-width;
     margin: 0 auto;
@@ -22,27 +20,16 @@ $tfont-size: 28px;
     height: 100px;
       & .headerTop {
         & .logo-img {
+          margin-top: 12px;
           width: 160px;
         }
         & .headerTopOut {
-
-          // display: inline-block;
         }
       }
     }
   }
   & .recommned{
     padding-top: 100px;
-    // height: 700px;
-    // width: 100%;
-    // background-color: skyblue;
-    
-    // & .slider{
-    //   margin: 0 auto;
-    //   & .slider_img {
-    //     width: 100%;
-    //   }
-    // }
   }
   & .product{
     & .product--title {

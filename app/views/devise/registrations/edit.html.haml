@@ -1,80 +1,67 @@
--# = render partial: "users/address"
-.form__frame
-  =form_with(model: @address, url: user_registration_path, method: :patch, html:{class: "personal-input-form"}, local: true) do |f|
-    =render "devise/shared/error_messages", resource: @address
-    .form_text
-      = f.label :名前
-      %span.textimage 必須
-    = f.text_field :name,{autofocus: true, placeholder: "例）山田太郎", class: 'input-text'}
-    .form_text
-      = f.label :フリガナ 
-      %span.textimage 必須
-    = f.text_field :name_kana,{autofocus: true, placeholder: "例）ヤマダタロウ", class: 'input-text'}
-    .form_text
-      = f.label :郵便番号 
-      %span.textimage 必須
-    = f.text_field :postal_code,{autofocus: true, placeholder: "例）123-4567", class: 'input-text'}
-    .form_text
-      = f.label :都道府県
-      %span.textimage 必須
-    = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"}, {class: 'input-text'}
-    .form_text
-      = f.label :市町村
-      %span.textimage 必須
-    = f.text_field :city, autofocus: true, placeholder: "例）横浜市緑区", class: 'input-text'
-    .form_text
-      = f.label :番地
-      %span.textimage 必須
-    = f.text_field :house_number, autofocus: true, placeholder: "例）青山1-1-1", class: 'input-text'
-    .form_text
-      = f.label :建物名
-      %span.form-group__optional 任意
-    = f.text_field :building_name, autofocus: true, placeholder: "例）筋肉塾ビル315", class: 'input-text'
-    .form_text
-      = f.label :電話番号
-      %span.form-group__optional 任意
-    = f.text_field :tell, autofocus: true, placeholder: "例）09012345678", class: 'input-text'
-    .next
-      = f.submit '登録', class: "nextbtn"
-    = link_to destroy_user_session_path, method: :delete, class: 'headerTopOut' do
-      ログアウト
--# %h2
--#   Edit #{resource_name.to_s.humanize}
--# = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
--#   = render "devise/shared/error_messages", resource: resource
--#   .field
--#     = f.label :name
--#     %br/
--#     = f.text_field :name, autofocus: true, autocomplete: "name"
--#   .field
-  -#   = f.label :email
-  -#   %br/
-  -#   = f.email_field :email, autofocus: true, autocomplete: "email"
-  -# - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-  -#   %div
-  -#     Currently waiting confirmation for: #{resource.unconfirmed_email}
-  -# .field
-  -#   = f.label :password
-  -#   %i (leave blank if you don't want to change it)
-  -#   %br/
-  -#   = f.password_field :password, autocomplete: "new-password"
-  -#   - if @minimum_password_length
-  -#     %br/
-  -#     %em
-  -#       = @minimum_password_length
-  -#       characters minimum
-  -# .field
-  -#   = f.label :password_confirmation
-  -#   %br/
-  -#   = f.password_field :password_confirmation, autocomplete: "new-password"
-  -# .field
-  -#   = f.label :current_password
-  -#   %i (we need your current password to confirm your changes)
-  -#   %br/
-  -#   = f.password_field :current_password, autocomplete: "current-password"
--#   .actions
--#     = f.submit "Update"
--# %h3 Cancel my account
--# %p
--#   Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
--# = link_to "Back", :back
+.editWrapper
+  .editHeader
+    .editHeader--title
+      = link_to root_path,"data-turbolinks": false  do
+        = image_tag 'logo_subsctime.png', class: 'logo-img2'
+    .editHeader--logout
+      = link_to destroy_user_session_path, method: :delete, class: 'headerTopOut' do
+        ログアウト
+  .editMain
+    .editMain--title MyAccount
+    .editMain--content
+      .editMain--content__title 会員情報
+      .editMain--contentFrom
+        =form_with(model: @address, url: user_registration_path, method: :patch, html:{class: "personal-input-form"}, local: true) do |f|
+          =render "devise/shared/error_messages", resource: @address
+          .form_text
+            = f.label :名前
+            %span.textimage 必須
+            = f.text_field :name,{autofocus: true, placeholder: "山田太郎", class: 'input-text'}
+          .form_text
+            = f.label :フリガナ 
+            %span.textimage 必須
+            = f.text_field :name_kana,{autofocus: true, placeholder: "ヤマダタロウ", class: 'input-text'}
+          .form_text
+            = f.label :郵便番号 
+            %span.textimage 必須
+            = f.text_field :postal_code,{autofocus: true, placeholder: "1234567", class: 'input-text', id: 'code'}
+          .form_text
+            = f.label :都道府県
+            %span.textimage 必須
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"}, {class: 'input-text'}
+          .form_text
+            = f.label :市町村
+            %span.textimage 必須
+            = f.text_field :city, autofocus: true, placeholder: "□□市□□町", class: 'input-text'
+          .form_text
+            = f.label :番地
+            %span.textimage 必須
+            = f.text_field :house_number, autofocus: true, placeholder: "□□1-12", class: 'input-text'
+          .form_text
+            = f.label :建物名
+            %span.textimage#free 任意
+            = f.text_field :building_name, autofocus: true, placeholder: "Aビル315", class: 'input-text'
+          .form_text
+            = f.label :電話番号
+            %span.textimage 必須
+            = f.text_field :tell, autofocus: true, placeholder: "09012345678", class: 'input-text'
+          .from_btn
+            = f.submit '情報を更新', class: "editbtn"
+          
+  .editFooter
+    .editDelete 
+      退会
+      .editDelete__btn
+        %button#modal-open-btn   
+          = link_to '退会する', root_path, class: 'delete-btn', id: 'deleteBtn'
+          //これだとすぐdelete動きエラー
+          -# = link_to '退会', user_registration_path, class: 'delete-btn', id: 'deleteBtn', method: :delete
+        #overlay
+          #modalWindow
+            .modal-message-box
+              %div 確認
+              %div 退会すると全てのデータが削除されます
+            %button#modal-close-btn キャンセル
+            %button#delete-comformation-btn 退会する
+    .editCopy
+      %small Copyright &copy; 2020 HAMADA TAKUMI. All Right Reserved.

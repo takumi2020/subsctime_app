@@ -14,7 +14,7 @@
           出品する
         = link_to root_path, class: 'headerTopMypage'  do
           カート
-        = link_to edit_user_registration_path, class: 'headerTopMypage'  do
+        = link_to edit_user_registration_path, class: 'headerTopMypage', "data-turbolinks": false do
           マイページ
       
       -# .headerSearch #検索
@@ -30,13 +30,7 @@
       = link_to "ログイン", new_user_session_path, class: "headerTopOut", "data-turbolinks": false
       .headerRight
         = link_to root_path, class: 'headerTopOut' do
-          Subsctimeとは？
-        = link_to root_path, class: 'headerTopOut' do
-          お客様サポート
-        = link_to new_product_path, class: 'headerTopNew'  do
-          出品する
-        = link_to root_path, class: 'headerTopMypage'  do
-          カート
+          Subsctimeとは？        
         - if user_signed_in? && current_user
           = link_to edit_user_registration_path, class: '', "data-turbolinks": false  do
             マイページ

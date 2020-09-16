@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :comments
   
   has_one :cards
-  has_one :address
+  has_one :address, dependent: :destroy
     
   
   def self.find_for_google_oauth2(auth)
