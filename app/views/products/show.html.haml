@@ -22,20 +22,8 @@
   .show-content
     .show-content__title 特徴
     .show-content__text
-      %ul
-        %li
-          = image_tag 'sample.png', width: '500px'
-        %li
-          = image_tag 'sample.png', width: '500px'
       .explain 
-        ハードな作業も、サクサクこなそう。
-        %ul
-          %li
-            = image_tag 'sample.png', width: '500px'
-          %li
-            = image_tag 'sample.png', width: '500px'
-      .explain 
-        こんなにもバッテリーが持ち待ちます
+        ここに特徴を書きますここに特徴を書きますここに特徴を書きますここに特徴を書きますここに特徴を書きますここに特徴を書きますここに特徴を書きますここに特徴を書きますここに特徴を書きますここに特徴を書きます仕様ここに特徴を書きますここに特徴を書きますここに特徴を書きますここに特徴を書きます
     .show-content__title 仕様
     .tableshow
       .show__img 
@@ -58,26 +46,28 @@
 
 
 
-
-  .showComment
-    - if current_user
-      = form_with(model: [@product, @comment], class: 'showComment__form', id: "new_comment") do |form|
-        = form.text_field :text, placeholder: "コメントここに書いてね", class: 'showComment__text', autocomplete: "off"
-        = form.submit "コメント", class: 'showComment__btn'
-    - else
-      %strong
-  -#       %p ※ コメントの投稿には新規登録/ログインが必要です ※
-        
-
-  .showProduct-comments
-    %h4.comment.show   コメント一覧
-    - if @comments
-      - @comments.each do |comment| 
-        .showProduct-comment
-          .b-left-wrapper
-          = link_to comment.user.name, "/users/#{comment.user_id}", class: 'b-left-wrapper__name'
-          .b-left
-            = comment.text
-
+  .commentTitle レビュー
+  .commentcontainer
+    .showComment
+      - if current_user
+        = form_with(model: [@product, @comment], class: 'showComment__form', id: "new_comment") do |form|
+          = form.text_field :text, placeholder: "レビューをここに書いてね   (40字以内)", class: 'showComment__text', autocomplete: "off"
+          = form.submit "投稿", class: 'showComment__btn'
+      - else
+        %strong
+          %p ※ コメントの投稿には新規登録/ログインが必要です ※
+          
+    
+    .showProduct-comments
+      
+      - if @comments
+        - @comments.each do |comment| 
+          .showProduct-comment
+            .b-left-wrapper
+            = link_to comment.user.name, "/users/#{comment.user_id}", class: 'b-left-wrapper__name'
+            .b-left
+              = comment.text
+.editCopy.copy
+  %small Copyright &copy; 2020 HAMADA TAKUMI. All Right Reserved.
 = link_to edit_product_path do
   編集
