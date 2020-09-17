@@ -101,6 +101,91 @@
         }
       }
     }
+    & .editCard {
+      
+      &--Title {
+        width: 100%;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 3em;
+        border-bottom: solid 1px #DDDDDD;
+        margin-top: 10px;
+      }
+      & .editCard__content {
+        display: flex;
+        align-items: center;
+        max-width: 650px;
+        padding-left: 10vw;
+        & .credit_card {
+          margin-top: 50px;
+          margin-bottom: 50px;
+          width: 280px;
+          height: 170px;
+          border: 2px solid #707070;
+          background-color: #707070;
+          border-radius: 20px;
+          color: #fff;
+          & .header {
+            margin-top: 17px;
+            margin-right: 10px;
+            font-size: 15px;
+            text-align: right;
+          }
+          & .creImg {
+            margin-top: 15px;
+            width: 42px;
+            height: 35px;
+            border-radius: 5px;
+            margin-left: 25px;
+            background-color: #f7df97;
+
+          }
+          & .credit_card_num {
+            font-size: 18px;
+            margin-left: 25px;
+            margin-top: 17px;
+          }
+          & .footer {
+            margin-top: 2px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &-left {
+              margin-left: 25px;
+            }
+            &-right{
+              margin-right: 15px;
+              &__brand {
+                width: 50px;
+                height: 30px;
+                border-radius: 4px;
+                background-color: #fff;
+                color: #707070;
+                font-size: 15px;
+                font-weight: 700;
+                text-align: center;
+                line-height: 30px;
+              }
+            }
+          }
+        }
+        & #charge-form {
+          margin-left: 30px;
+          & button {
+            border: none;
+            background-color: #fff;
+            & .fas {
+              color: #707070;
+              font-size: 37px;
+              cursor: pointer;
+              &:hover {
+                color: ff8e6e;
+              }
+            }
+          }
+        }
+      } 
+    }
   }
   & .editFooter {
     & .editDelete {
@@ -138,7 +223,6 @@
     position: fixed;
     top: 0;
     left: 0;
-  //透過度をつける
     background: rgba(0, 0, 0, 0.7);
     display: none;
     z-index: 1;
@@ -190,7 +274,6 @@
   }
   
   .delete-btn {
-  //削除ボタンの非表示
     width: 0;
     height: 0;
     margin: 0;

@@ -1,8 +1,8 @@
 .editWrapper
   .editHeader
     .editHeader--title
-      = link_to root_path,"data-turbolinks": false  do
-        = image_tag 'logo_subsctime.png', class: 'logo-img2'
+      -# = link_to root_path,"data-turbolinks": false  do
+      -#   = image_tag 'logo_subsctime.png', class: 'logo-img2'
     .editHeader--logout
       = link_to destroy_user_session_path, method: :delete, class: 'headerTopOut' do
         ログアウト
@@ -47,7 +47,29 @@
             = f.text_field :tell, autofocus: true, placeholder: "09012345678", class: 'input-text'
           .from_btn
             = f.submit '情報を更新', class: "editbtn"
-          
+    .editCard
+      .editCard--Title
+        クレジットカード情報
+      .editCard__content
+        .credit_card
+          .header CREDIT CARD
+          .creImg 
+          .credit_card_num
+            = "**** **** **** " + @default_card_information.last4
+          .footer
+            .footer-left
+              .footer-left__month
+                - exp_month = @default_card_information.exp_month.to_s
+                - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                = exp_month + " / " + exp_year
+            .footer-right
+              .footer-right__brand 
+                .footer-right__brandtitle 
+                  = @default_card_information.brand
+        = form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
+          %input{ type: "hidden", name: "card_id", value: "" }
+          %button 
+            = icon('fas', 'trash-alt', class: "trash-alt")
   .editFooter
     .editDelete 
       退会
