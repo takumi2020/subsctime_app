@@ -1,9 +1,10 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :show]
-
+  # before_action :set_user, only: [:index]
 
   
   def index
+    @address = Address.exists?(user_id: current_user.id)
     @products = Product.includes(:user).page(params[:page]).per(4).order("created_at DESC")
   end
 
@@ -57,6 +58,10 @@ class ProductsController < ApplicationController
   
   
   private
+
+  def set_address
+    @address = Address.exists?(user_id: current_user.id)
+  end
 
   def product_params
     params.require(:product).permit(:product_name, :description, :price, :img).merge(user_id: current_user.id)

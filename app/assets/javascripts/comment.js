@@ -27,10 +27,10 @@ $(function () {
           $('.comments').append(html);
           $('.showComment__text').val('');
           $('.showComment__btn').prop('disabled', false);
+
         })
         .fail(function () {
           alert('error');
         })
     })
 });
-

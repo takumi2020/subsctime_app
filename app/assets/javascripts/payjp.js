@@ -1,18 +1,27 @@
 $(window).bind("load", function(){
   if (document.URL.match(/cards/)) {
     var payjp = Payjp('pk_test_92a7d8f9bdc9e0c5575bdbb0')
+    var style = {
+      base: {
+        color: '#07689f',
+        '::placeholder': {
+          color: '#7e8a97',
+          fontFamily: 'sans-serif',
+          fontSize: '15px',
+        }
+      },
+      invalid: {
+        color: '#ec0101',
+      }
+    }
       // Payjp('gon.payjp_access_key') Payjp('pk_test_92a7d8f9bdc9e0c5575bdbb0')
     var elements = payjp.elements();
-    var numberElement = elements.create('cardNumber');
-    var expiryElement = elements.create('cardExpiry');
-    var cvcElement = elements.create('cardCvc');
-    numberElement.mount('#number-form');
-    expiryElement.mount('#expiry-form');
-    cvcElement.mount('#cvc-form');
-    var submit_btn = $("#info_submit");
+    var cardElement = elements.create('card', {style: style})
+    cardElement.mount('#payjp-form');
+    var submit_btn = $("#pay_submit");
     submit_btn.click(function (e) {
       e.preventDefault();
-      payjp.createToken(numberElement).then(function (response) {
+      payjp.createToken(cardElement).then(function (response) {
         if (response.error) {        // = 通信に失敗したとき
           alert(response.error.message)
           regist_card.prop('disabled', false)

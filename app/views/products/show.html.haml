@@ -23,7 +23,7 @@
     .show-content__title 特徴
     .show-content__text
       .explain 
-        ここに特徴を書きますここに特徴を書きますここに特徴を書きますここに特徴を書きますここに特徴を書きますここに特徴を書きますここに特徴を書きますここに特徴を書きますここに特徴を書きますここに特徴を書きます仕様ここに特徴を書きますここに特徴を書きますここに特徴を書きますここに特徴を書きます
+        = safe_join(@product.description.split("\n"),tag(:br))
     .show-content__title 仕様
     .tableshow
       .show__img 
@@ -52,6 +52,7 @@
       - if current_user
         = form_with(model: [@product, @comment], class: 'showComment__form', id: "new_comment") do |form|
           = form.text_field :text, placeholder: "レビューをここに書いてね   (40字以内)", class: 'showComment__text', autocomplete: "off"
+          %input.st{:name => "scroll_top", :type => "hidden", :value => ""}
           = form.submit "投稿", class: 'showComment__btn'
       - else
         %strong

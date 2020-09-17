@@ -12,11 +12,12 @@
           お客様サポート
         = link_to new_product_path, class: 'headerTopNew'  do
           出品する
-        = link_to root_path, class: 'headerTopMypage'  do
-          カート
-        = link_to edit_user_registration_path, class: 'headerTopMypage', "data-turbolinks": false do
-          マイページ
-      
+        -if @address
+          = link_to edit_user_registration_path, class: 'headerTopMypage', "data-turbolinks": false do
+            = icon('fas', 'user-cog', class: "user-cog")
+        -else
+          = link_to addresses_path, class: 'headerTopMypage', "data-turbolinks": false do
+            = icon('fas', 'user-cog', class: "user-cog")
       -# .headerSearch #検索
       -#   = form_with(url: search_products_path, local: true, method: :get, class: "headerSearchbox") do |form| 
       -#     = form.text_field :keyword, placeholder: "商品を検索する例    ）iPad.....etc", class: "headerSearchbox__text", autocomplete: "off"
