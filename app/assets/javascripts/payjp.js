@@ -1,4 +1,4 @@
-$(window).bind("load", function(){
+$(document).on('turbolinks:load', function() { 
   if (document.URL.match(/cards/)) {
     var payjp = Payjp('pk_test_92a7d8f9bdc9e0c5575bdbb0')
     var style = {

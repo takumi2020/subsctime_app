@@ -1,14 +1,15 @@
 .newAdWrapper
   .newAdHeader
     .newAdHeader--title
-      title
+      = link_to root_path,"data-turbolinks": false  do
+        = image_tag 'logo_subsctime.png', class: 'logo-img3', width: '150px'
     .newAdHeader--logout
       = link_to destroy_user_session_path, method: :delete, class: 'headerTopOut' do
         ログアウト
   .newAdMain
-    .newAdMain--title MyAccount
+    .newAdMain--title 住所登録
     .newAdMain--content
-      .newAdMain--content__title 会員情報
+      .newAdMain--content__title 
       .newAdMain--contentFrom
         .newAd 
           = form_with(model: @address,  html:{class: "personal-input-form"}, local: true) do |f|

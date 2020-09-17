@@ -1,9 +1,28 @@
+@keyframes logo2{
+	0%{left:-270px;}
+	100%{left:250px;}
+}
+
+.logo-img2 {
+  animation-duration: 3000ms;
+  animation-name: logo2;
+  transition-timing-function: ease-in;
+  display:inline-block;
+	position: relative;
+}
+
+
+
+
 .newAdWrapper{
   width: 660px;
   height: auto;
   margin: 0 auto;
   // background-color: blanchedalmond;
   & .newAdHeader {
+    &--title {
+      text-align: center;
+    }
   }
   & .newAdMain {
     &--title {
@@ -85,3 +104,4 @@
     }
   }
 }
+

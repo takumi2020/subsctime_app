@@ -23,12 +23,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_address
-    @user = current_user.id
-    # @address = @user.build_address
-    @address = Address.new(address_params)
+    # @user = current_user.id
+    @address = Address.create(address_params)
     if @address.save
-      # flash[:success] = "完了しました"
-      redirect_to root_path
+      redirect_to new_card_path
     else
       # flash[:error] = '入力してください'
       render 'new_address'
