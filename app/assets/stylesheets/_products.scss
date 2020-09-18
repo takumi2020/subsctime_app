@@ -26,6 +26,21 @@ $tfont-size: 28px;
         & .headerTopOut {
         }
       }
+      & .headerRight {
+        &-title {
+          padding: 0 20px 0 20px;
+          border-right: 1px solid #dddddd;
+          &:nth-last-child(2)  {
+            border-right: none;
+            margin-right: 80px;
+          }
+        }
+        &-mypage {
+          .user-cog {
+            font-size: 25px;
+          }
+        }
+      }
     }
   }
   & .recommned{

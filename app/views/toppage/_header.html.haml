@@ -6,17 +6,17 @@
           = image_tag 'logo_subsctime.png', class: 'logo-img'
           
       .headerRight
-        = link_to root_path, class: 'headerTopOut' do
+        = link_to root_path, class: 'headerRight-title' do
           Subsctimeとは？
-        = link_to root_path, class: 'headerTopOut' do
+        = link_to root_path, class: 'headerRight-title' do
           お客様サポート
-        = link_to new_product_path, class: 'headerTopNew'  do
+        = link_to new_product_path, class: 'headerRight-title'  do
           出品する
         -if @address
-          = link_to edit_user_registration_path, class: 'headerTopMypage', "data-turbolinks": false do
+          = link_to edit_user_registration_path, class: 'headerRight-mypage', "data-turbolinks": false do
             = icon('fas', 'user-cog', class: "user-cog")
         -else
-          = link_to addresses_path, class: 'headerTopMypage', "data-turbolinks": false do
+          = link_to addresses_path, class: 'headerRight-mypage', "data-turbolinks": false do
             = icon('fas', 'user-cog', class: "user-cog")
       -# .headerSearch #検索
       -#   = form_with(url: search_products_path, local: true, method: :get, class: "headerSearchbox") do |form| 
