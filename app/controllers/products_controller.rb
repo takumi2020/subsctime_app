@@ -78,6 +78,8 @@ class ProductsController < ApplicationController
       customer: Payjp::Customer.retrieve(card.customer_id),
       currency: 'jpy'
     )
+    flash[:alert] = '購入致しました'
+    redirect_to root_path
   end
 
 
