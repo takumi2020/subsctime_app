@@ -10,9 +10,31 @@
   display:inline-block;
 	position: relative;
 }
+.newfooter {
+  &--btn {
+    text-align: center;
+    width: 100%;
+    & .back_btn {
+      margin-top: 10px;
+      color: white;
+      font-size: 15px;
+      display: inline-block;
+      border: none;
+      background: #FF8F6D;
+      width: 160px;
+      height: 40px;
+      border-radius: 5px;
+      text-align: center;
+      line-height: 40px;
+    }
+  }
+  & .editCopy {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 5px;
 
-
-
+  }
+}
 
 .newAdWrapper{
   width: 660px;

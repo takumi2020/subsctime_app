@@ -1,11 +1,11 @@
+.newAdWrapper
+  .newAdHeader
+    .newAdHeader--title
+      = link_to root_path,"data-turbolinks": false  do
+        = image_tag 'logo_subsctime.png', class: 'logo-img3', width: '150px'
+    
 .editWrapper
   .editHeader
-    .editHeader--title
-      -# = link_to root_path,"data-turbolinks": false  do
-      -#   = image_tag 'logo_subsctime.png', class: 'logo-img2'
-    .editHeader--logout
-      = link_to destroy_user_session_path, method: :delete, class: 'headerTopOut' do
-        ログアウト
   .editMain
     .editMain--title MyAccount
     .editMain--content

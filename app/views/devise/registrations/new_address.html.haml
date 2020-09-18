@@ -3,9 +3,6 @@
     .newAdHeader--title
       = link_to root_path,"data-turbolinks": false  do
         = image_tag 'logo_subsctime.png', class: 'logo-img3', width: '150px'
-    .newAdHeader--logout
-      = link_to destroy_user_session_path, method: :delete, class: 'headerTopOut' do
-        ログアウト
   .newAdMain
     .newAdMain--title 住所登録
     .newAdMain--content
@@ -48,3 +45,10 @@
               = f.text_field :tell, autofocus: true, placeholder: "09012345678", class: 'input-text'
             .from_btn
               = f.submit '登録', class: "editbtn"
+
+.newfooter
+  .newfooter--btn
+    = link_to root_path, class: 'back_btn' do
+      戻る
+  .editCopy
+    %small Copyright &copy; 2020 HAMADA TAKUMI. All Right Reserved.
