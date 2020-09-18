@@ -50,26 +50,33 @@
     .editCard
       .editCard--Title
         クレジットカード情報
-      .editCard__content
-        .credit_card
-          .header CREDIT CARD
-          .creImg 
-          .credit_card_num
-            = "**** **** **** " + @default_card_information.last4
-          .footer
-            .footer-left
-              .footer-left__month
-                - exp_month = @default_card_information.exp_month.to_s
-                - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-                = exp_month + " / " + exp_year
-            .footer-right
-              .footer-right__brand 
-                .footer-right__brandtitle 
-                  = @default_card_information.brand
-        = form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
-          %input{ type: "hidden", name: "card_id", value: "" }
-          %button 
-            = icon('fas', 'trash-alt', class: "trash-alt")
+      - if @card.blank?
+        .cardadd
+          .cardadd-content
+            = link_to new_card_path, class: 'card_add', "data-turbolinks": false do
+              = image_tag 'card.png', class: 'card_addlogo'
+              .cardadd-text  カードを追加
+      -else 
+        .editCard__content
+          .credit_card
+            .header CREDIT CARD
+            .creImg 
+            .credit_card_num
+              = "**** **** **** " + @default_card_information.last4
+            .footer
+              .footer-left
+                .footer-left__month
+                  - exp_month = @default_card_information.exp_month.to_s
+                  - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                  = exp_month + " / " + exp_year
+              .footer-right
+                .footer-right__brand 
+                  .footer-right__brandtitle 
+                    = @default_card_information.brand
+          = form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
+            %input{ type: "hidden", name: "card_id", value: "" }
+            %button 
+              = icon('fas', 'trash-alt', class: "trash-alt")
   .editFooter
     .editDelete 
       退会

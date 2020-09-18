@@ -52,9 +52,9 @@ class CardsController < ApplicationController
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
-      card.delete
+      card.delete  
+      redirect_to root_path
     end
-      redirect_to action: "new"
   end
 
 

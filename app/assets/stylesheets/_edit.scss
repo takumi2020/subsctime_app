@@ -111,6 +111,22 @@
         border-bottom: solid 1px #DDDDDD;
         margin-top: 10px;
       }
+      & .cardadd {
+        &-content {
+          margin-top: 50px; 
+          text-align: center;
+          & .card_add {
+            &logo {
+              width: 120px;
+              text-align: center;
+            }
+          }
+        }
+        &-text {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+      }
       & .editCard__content {
         display: flex;
         align-items: center;
