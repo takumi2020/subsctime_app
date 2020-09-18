@@ -1,7 +1,6 @@
 // @import 'bourbon';
 $bezier: cubic-bezier(0.215, 0.610, 0.355, 1.000);
 $time: 400ms;
-
 $base-font-family: "Avenir Next", "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 @mixin animated(
@@ -23,13 +22,18 @@ $base-font-family: "Avenir Next", "Avenir", "Helvetica Neue", Helvetica, Arial, 
   color: #ffffff;
   line-height: 1.5;
 }
-
+.containertitle {
+  color: #ffffff
+}
 h1 {
   font-family: "Texta", $base-font-family;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 4px;
   text-align: center;
+  &:visited {
+    color: #ffffff
+  }
 }
 
 h2 {
@@ -105,7 +109,7 @@ h2 {
     position: relative;
     color: rgba(255, 255, 255, .2);
     transition: color $time $bezier;
-   
+
     &::after {
       content: attr(data-text);
       position: absolute;
@@ -259,3 +263,13 @@ h2 {
 h1{
   font-size: 30px;
 }
+
+
+.sing_up_btn {
+  display: inline-block;
+  color: #fff !important;
+  padding: 5px 20px;
+  margin-top: 60px;
+  border-radius: 10px;
+  background-color: black;
+} 

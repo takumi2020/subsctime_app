@@ -14,26 +14,27 @@ class CardsController < ApplicationController
       redirect_to action: "new"
     else
       customer = Payjp::Customer.create(
-      description: '登録テスト2020', #なくてもOK
-      email: current_user.email, #なくてもOK
+      description: '登録テスト2020', 
+      email: current_user.email,
       card: params['payjp_token'],
       metadata: {user_id: current_user.id}
-      ) #念の為metadataにuser_idを入れましたがなくてもOK
-      @card = Card.new(                  # カードテーブルのデータの作成
-        user_id: current_user.id,        # ここでcurrent_user.idがいるので、前もってsigninさせておく
-        customer_id: customer.id,        # customerは上で定義
-        card_id: customer.default_card  # .default_cardを使うことで、customer定義時に紐付けされたカード情報を引っ張ってくる ここがnullなら上のcustomerのcard: params['payjp_token']が読み込めていないことが多い
+      ) #
+      @card = Card.new(
+        user_id: current_user.id,
+        customer_id: customer.id,
+        card_id: customer.default_card 
       )
       if @card.save
-        redirect_to action: "show"
+        redirect_to root_path
+        flash[:notice] = "登録完了しました"
       else
-        redirect_to action: "pay"
+        redirect_to action: "new"
       end
     end
   end
 
 
-  def show #Cardのデータpayjpに送り情報を取り出します
+  def show
     card = Card.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to action: "new" 
@@ -51,9 +52,9 @@ class CardsController < ApplicationController
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
-      card.delete
+      card.delete  
+      redirect_to root_path
     end
-      redirect_to action: "new"
   end
 
 

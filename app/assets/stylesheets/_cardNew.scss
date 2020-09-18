@@ -1,0 +1,74 @@
+.cardWrapper{
+  height: 100vh;
+  & .container {
+    padding: 20px 16px 0px 16px;
+  }
+  max-width: 1000px;
+  margin: 0 auto;
+  & .card-title {
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 3em;
+    border-bottom: solid 1px #DDDDDD;
+    margin-top: 10px;
+    margin-bottom: 80px;
+  }
+
+  & .card--container {
+    width: 500px;
+    margin: 0 auto;
+    & .form-group {
+      & .PayjpElement {
+        border: 1px solid #7e8a97;
+        height: 40px;
+        border-radius: 5px;
+        padding-top: 15px;
+        background-color: #f1f3f8;
+      } 
+      & #card_form {
+        margin-top: 20px;
+        text-align: center;
+        & .payBtn {
+          font-size: 15px;
+          border: none;
+          background: #000000;
+          color: #fff;
+          width: 200px;
+          height: 60px;
+          margin: 0 auto;
+          border-radius: 5px;
+        }
+      }
+    }
+    
+  }
+  & .card-root {
+    & .root-btn {
+      font-size: 15px;
+      border: none;
+      background: #FF8F6D;
+      width: 200px;
+      height: 60px;
+      border-radius: 5px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 60px;
+      & a {
+        color: white;
+      }
+    }
+  }
+  & .editCopy {
+    margin: 80px 0 10px 0;
+    padding-top: 90px;
+    border-top: solid 1px #DDDDDD;
+    text-align: center;
+  }
+}
+
+
+
+
+
+

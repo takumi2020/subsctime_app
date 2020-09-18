@@ -1,0 +1,298 @@
+@keyframes logo3{
+	0%{left:-520px;}
+	100%{left:0px;}
+}
+
+.logo-img3 {
+  animation-duration: 3000ms;
+  animation-name: logo3;
+  transition-timing-function: ease-in;
+  display:inline-block;
+	position: relative;
+}
+
+.editWrapper{
+  width: 660px;
+  height: auto;
+  margin: 0 auto;
+  // background-color: blanchedalmond;
+  & .editHeader {
+    &--title {
+      & a > .logo-img2 {
+        width: 160px;
+        position: relative;
+        left: 250px;
+      }
+    }
+  }
+  & .editMain {
+    &--title {
+      color: #222;
+      font-size: 22px;
+      text-align: center;
+      margin: 10px 0 30px;
+      line-height: 1.5;
+    }
+    &--content {
+      margin: 0 0 30px;
+      padding: 20px;
+      border: 2px solid #b0bec5;
+      border-radius: 4px;
+      &__title{
+        font-weight: 300;
+        font-size: 14px;
+      }
+      &From{
+        & .personal-input-form{
+          width: 510px;
+          margin: 0 auto;
+          & .form_text {
+            text-align: right;
+            margin-bottom: 45px;
+            & label {
+              font-size: 13px;
+            }
+            & .textimage {
+              display: inline-block;
+              text-align: center;
+              font-size: 8px;
+              width: 25px;
+              height: auto;
+              background-color: #ff8e6e;
+              color: white;
+              border-radius: 3px;
+              margin: 0 25px 0 8px;
+              &#free {
+                background-color: whitesmoke;
+                color: #7e8a97;
+              }
+            }
+            & .input-text {
+              width: 320px;
+              height: 40px;
+              padding: 5px 0 5px 10px;
+              border: 2px solid #d7dee2;
+              font-size: 15px;
+              margin-top: 0;
+              border-radius: 3px;
+              &#code {
+                width: 90px;
+                margin-right: 230px;
+              }
+            }
+          }
+          & .from_btn {
+            & .editbtn {
+              font-size: 14px;
+              display: block;
+              background: #000000;
+              border: 1px solid #cccccc;
+              color: #fff;
+              width: 200px;
+              height: 60px;
+              margin: 0 auto;
+              border-radius: 5px;
+              transition: opacity 0.5s ease-out;
+              &:hover {
+                opacity: 0.5;
+              }
+            }
+          }
+        }
+      }
+    }
+    & .editCard {
+      
+      &--Title {
+        width: 100%;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 3em;
+        border-bottom: solid 1px #DDDDDD;
+        margin-top: 10px;
+      }
+      & .cardadd {
+        &-content {
+          margin-top: 50px; 
+          text-align: center;
+          & .card_add {
+            &logo {
+              width: 120px;
+              text-align: center;
+            }
+          }
+        }
+        &-text {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+      }
+      & .editCard__content {
+        display: flex;
+        align-items: center;
+        max-width: 650px;
+        padding-left: 10vw;
+        & .credit_card {
+          margin-top: 50px;
+          margin-bottom: 50px;
+          width: 280px;
+          height: 170px;
+          border: 2px solid #707070;
+          background-color: #707070;
+          border-radius: 20px;
+          color: #fff;
+          & .header {
+            margin-top: 17px;
+            margin-right: 10px;
+            font-size: 15px;
+            text-align: right;
+          }
+          & .creImg {
+            margin-top: 15px;
+            width: 42px;
+            height: 35px;
+            border-radius: 5px;
+            margin-left: 25px;
+            background-color: #f7df97;
+
+          }
+          & .credit_card_num {
+            font-size: 18px;
+            margin-left: 25px;
+            margin-top: 17px;
+          }
+          & .footer {
+            margin-top: 2px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &-left {
+              margin-left: 25px;
+            }
+            &-right{
+              margin-right: 15px;
+              &__brand {
+                width: 50px;
+                height: 30px;
+                border-radius: 4px;
+                background-color: #fff;
+                color: #707070;
+                font-size: 15px;
+                font-weight: 700;
+                text-align: center;
+                line-height: 30px;
+              }
+            }
+          }
+        }
+        & #charge-form {
+          margin-left: 30px;
+          & button {
+            border: none;
+            background-color: #fff;
+            & .fas {
+              color: #707070;
+              font-size: 37px;
+              cursor: pointer;
+              &:hover {
+                color: ff8e6e;
+              }
+            }
+          }
+        }
+      } 
+    }
+  }
+  & .editFooter {
+    & .editDelete {
+      color: #222;
+      border-top: 2px solid #f6f6f6;
+      border-bottom: 2px solid #f6f6f6;
+      padding: 20px;
+      font-size: 20px;
+      text-align: center;
+      margin: 10px 0 30px;
+      line-height: 1.5;
+      &__btn {
+        & button#modal-open-btn {
+          margin-top: 20px;
+          margin-bottom: 20px;
+          line-height: 1;
+          font-size: 13px;
+          padding: .75em 1.5em;
+          border: none;
+          border-radius: 3px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  & .editcopy {
+    text-align: center;
+    margin-bottom: 3px;
+  }
+}
+
+#overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    z-index: 1;
+  }
+  
+  #modalWindow {
+    width: 500px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 5px;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  
+    .modal-message-box {
+      font-size: 16px;
+      width: 100%;
+      height: calc(100% - 60px);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+  
+    #modal-close-btn {
+      width: 50%;
+      height: 60px;
+      border-radius: 5px;
+      border: 1px solid #7e8a97;
+      background-color: whitesmoke;
+      cursor: pointer;
+    }
+  
+    #delete-comformation-btn {
+      width: 50%;
+      height: 60px;
+      border-radius: 5px;
+      background-color: #ff8e6e;
+      color: whitesmoke;
+      border: none;
+      cursor: pointer;
+
+    }
+  }
+  
+  .delete-btn {
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }

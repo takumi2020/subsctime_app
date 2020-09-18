@@ -3,7 +3,7 @@
 .show
   .showProduct
     .showProduct-left
-      = image_tag @product.img.thumb.url, class: 'showProduct-left_image'
+      = image_tag @product.img.url, class: 'showProduct-left_image'
     .showProduct-main
       .showProduct-mainTop
         .showProduct-mainTop_name
@@ -15,50 +15,60 @@
           %p.title 数量
           = form_for(@product) do |f|
             = f.text_field :price, class: 'from_price'
-        -# .showProduct-mainTop_input
-        -#   = @product.description
-      .showProduct-main-footer
-        .showProduct-main-footer_btn
-          -# - if user_signed_in?
-          -#   = form_with url: "#" do
-          -#     :plain
-          -#       %script.payjp-button{type:"text/javascript",  src: "https://checkout.pay.jp",  class: "payjp-button" data-key :"pk_test_92a7d8f9bdc9e0c5575bdbb0"}
-          -#     -#           %form{action: "/card/pay", method: "post"}
-          -#     -# %script.payjp-button{"data-key" => "pk_test_92a7d8f9bdc9e0c5575bdbb0", src: "https://checkout.pay.jp/"}
-        .showProduct-main-footer_edit
-          - if user_signed_in? && current_user.id === @product.user_id
-            = link_to edit_product_path do
-              .footedit{style: "background-color: #84a9ac;"} 編集
-        
-
-  .showComment
-    - if current_user
-      = form_with(model: [@product, @comment], class: 'showComment__form', id: "new_comment") do |form|
-        = form.text_field :text, placeholder: "コメントここに書いてね", class: 'showComment__text', autocomplete: "off"
-        = form.submit "コメント", class: 'showComment__btn'
-    - else
-      %strong
-        %p ※ コメントの投稿には新規登録/ログインが必要です ※
-        
-
-  .showProduct-comments
-    %h4.comment.show   コメント一覧
-    - if @comments
-      - @comments.each do |comment| 
-        .showProduct-comment
-          .b-left-wrapper
-          = link_to comment.user.name, "/users/#{comment.user_id}", class: 'b-left-wrapper__name'
-          .b-left
-            = comment.text
+            = button_tag type: 'submit', class: 'submitbtn' do
+              %span 
+                = icon('fas', 'shopping-cart', class: "cart__icon")
+                購入する
+  .show-content
+    .show-content__title 特徴
+    .show-content__text
+      .explain 
+        = safe_join(@product.description.split("\n"),tag(:br))
+    .show-content__title 仕様
+    .tableshow
+      .show__img 
+        = image_tag @product.img.url, width: '250px'
+      .show__table
+        .resource
+          %table
+            %tr
+              %td  色
+              %td  グロスホワイト
+            %tr
+              %td  実容量
+              %td 200ml
+            %tr
+              %td 生産国
+              %td 日本
+            %tr
+              %td 材質
+              %td 磁気
 
 
 
-= link_to root_path do
-  戻る
-
-
--# .showProduct-comment
--#           .b-left-wrapper
--#           = link_to comment.user.name, "/users/#{comment.user_id}", class: 'b-left-wrapper__name'
--#           .b-left
--#             = comment.text
+  .commentTitle レビュー
+  .commentcontainer
+    .showComment
+      - if current_user
+        = form_with(model: [@product, @comment], class: 'showComment__form', id: "new_comment") do |form|
+          = form.text_field :text, placeholder: "レビューをここに書いてね   (40字以内)", class: 'showComment__text', autocomplete: "off"
+          %input.st{:name => "scroll_top", :type => "hidden", :value => ""}
+          = form.submit "投稿", class: 'showComment__btn'
+      - else
+        %strong
+          %p ※ コメントの投稿には新規登録/ログインが必要です ※
+          
+    
+    .showProduct-comments
+      
+      - if @comments
+        - @comments.each do |comment| 
+          .showProduct-comment
+            .b-left-wrapper
+            = link_to comment.user.name, "/users/#{comment.user_id}", class: 'b-left-wrapper__name'
+            .b-left
+              = comment.text
+.editCopy.copy
+  %small Copyright &copy; 2020 HAMADA TAKUMI. All Right Reserved.
+= link_to edit_product_path do
+  編集
