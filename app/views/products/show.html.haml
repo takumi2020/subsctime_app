@@ -12,12 +12,13 @@
           = "#{@product.price.to_s(:delimited, delimiter: ',')}円"
           %span.mainprice (税込)
         .showProduct-mainTop_count
-          %p.title 数量
-          = form_for(@product) do |f|
-            = f.text_field :price, class: 'from_price'
-            = button_tag type: 'submit', class: 'submitbtn' do
-              %span 
-                = icon('fas', 'shopping-cart', class: "cart__icon")
+          -# %p.title 数量
+          -# = form_for(@product) do |f|
+          -#   = f.text_field :price, class: 'from_price'
+          = link_to done_product_path, class: 'submitbtn' do
+            .submitbtn-text
+              = icon('fas', 'shopping-cart', class: "cart__icon")
+              .submitbtn-text__title
                 購入する
   .show-content
     .show-content__title 特徴

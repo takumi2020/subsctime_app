@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:edit, :show]
-  # before_action :set_user, only: [:index]
+  before_action :set_product, only: [:edit, :show, :purchase]
+  before_action :set_address, only: [:done]
 
   
   def index
@@ -49,9 +49,35 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
     @comment = Comment.new
     @comments = @product.comments.includes(:user)
+  end
+
+  def done
+    if @address
+      @address = Address.find_by(user_id: current_user.id)
+      card = Card.find_by(user_id: current_user.id)
+      if card.blank?
+        flash[:alert] = '購入前にカード登録してください'
+        redirect_to new_card_path and return
+      else
+        Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+        customer = Payjp::Customer.retrieve(card.customer_id)
+        @default_card_information = customer.cards.retrieve(card.card_id)
+      end
+    else
+      redirect_to product_path, alert: '住所を登録してください'
+    end
+  end
+
+  def purchase
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    card = Card.find_by(user_id: current_user.id)
+    charge = Payjp::Charge.create(
+      amount: @product.price,
+      customer: Payjp::Customer.retrieve(card.customer_id),
+      currency: 'jpy'
+    )
   end
 
 

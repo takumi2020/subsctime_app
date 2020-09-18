@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
       format.html { redirect_to product_path(params[:product_id])  }
       format.json
     end
-    # redirect_to "/products/#{comment.product.id}"
   end
 
   private

@@ -1,0 +1,14 @@
+.newAdWrapper
+  .newAdHeader
+    .newAdHeader--title
+      = link_to root_path,"data-turbolinks": false  do
+        = image_tag 'logo_subsctime.png', class: 'logo-img4', width: '150px'
+    
+    %h5 購入確認
+  = "**** **** **** " + @default_card_information.last4
+  = @default_card_information.brand
+  = @address.postal_code
+  = @address.prefecture.name
+  = @address.city
+  = @address.house_number
+  =@address.name
