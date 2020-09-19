@@ -1,3 +1,3 @@
-$(function () {
-    $(".notifications").fadeOut(1500); 
-});
+// $(function () {
+//     $(".notifications").fadeOut(1500); 
+// });
