@@ -130,16 +130,26 @@ $sfont-size: 25px;
 }
 
 .submitbtn {
-  font-size: 15px;
-  display: block;
-  background: #000000;
-  border: 1px solid #cccccc;
-  color: #fff;
-  width: 350px;
-  height: 60px;
-  margin-top: 65px;
+  &-text {
+    background: #000000;
+    border: 1px solid #cccccc;
+    color: #fff;
+    width: 200px;
+    height: 60px;
+    margin-top: 65px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__title {
+      & .purchaseButton {
+        color: #ffffff;
+      }
+    }
+  }
 }
 .cart__icon {
+  color: #ffffff;
   padding-right: 6px;
 }
 

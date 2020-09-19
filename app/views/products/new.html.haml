@@ -1,9 +1,8 @@
-
-- if user_signed_in?
-  .Newheader
-    .NewheaderTop
-      =link_to "SubscTime", root_path, class: 'NewheaderTopto'
-      =link_to "マイページ", "/users/#{current_user.id}", class: 'NewheaderTopMypage'
+.newAdWrapper
+  .newAdHeader
+    .newAdHeader--title
+      = link_to root_path,"data-turbolinks": false  do
+        = image_tag 'logo_subsctime.png', class: 'logo-img4', width: '150px'
 .text
   .textto
     = form_with(model: @product, html:{class: "texttoFor"}, local: true) do |f| 
