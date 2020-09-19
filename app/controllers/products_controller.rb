@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:edit, :show, :purchase]
-  before_action :set_address, only: [:done]
+  before_action :set_product, only: [:edit, :show, :purchase, :done]
+  before_action :set_address, only: [:done, :show]
 
   
   def index

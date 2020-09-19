@@ -3,16 +3,45 @@
     .newAdHeader--title
       = link_to root_path,"data-turbolinks": false  do
         = image_tag 'logo_subsctime.png', class: 'logo-img4', width: '150px'
-    
-    %h5 購入確認
-  = "**** **** **** " + @default_card_information.last4
-  = @default_card_information.brand
-  = @address.postal_code
-  = @address.prefecture.name
-  = @address.city
-  = @address.house_number
-  =@address.name
+  .donewrapper
+    .done--main
+      .done--main_title.head 確認ページ
+      .done--main_title 
+        商品
+      .done-item
+        = image_tag @product.img.url, width: '150px',class: 'done-img'
+        .done-item-right
+          .done__name
+            = @product.product_name
+          .done__price
+            = "#{@product.price.to_s(:delimited, delimiter: ',')}円"
+      .done--main_title 
+        お届け先住所
+      .done-address
+        〒
+        %span
+        = @address.postal_code
+        %p.paragraph.pre 
+          = @address.prefecture.name
+          %span
+            = @address.city
+          %span.paragraph
+            = @address.house_number
+        .paragraph.pre
+          = @address.name
+      .done--main_title.doneCard-title
+        登録カード
+      .done-card
+        = "**** **** **** " + @default_card_information.last4
+        = @default_card_information.brand
+
+    .done_btn
+      = link_to purchase_product_path, method: :post, local: true do
+        購入
+
+    .done_footer
+      .editCopy.copy
+        %small Copyright &copy; 2020 HAMADA TAKUMI. All Right Reserved.
 
 
-= link_to purchase_product_path, method: :post, local: true do
-  購入
+

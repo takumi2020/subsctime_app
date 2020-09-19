@@ -1,0 +1,78 @@
+.newAdWrapper {
+  & .donewrapper {
+    & .done--main {
+      & .head {
+        font-size: 20px;
+        width: 100%;
+        text-align: center;
+        border-bottom: none;
+      }
+      &_title {
+        width: 100%;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 3em;
+        border-bottom: solid 1px #DDDDDD;
+      }
+      & .done-item {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 200px;
+        & .done-img {
+          padding: 30px 30px;
+        }
+        &-right {
+          & .done__name {
+            margin-top: 70px;
+            padding: 5px 15px;
+            font-size: 16px;
+          }
+          & .done__price{
+            font-weight: 700;
+            padding: 5px 15px;
+            margin-top: 15px;
+            font-size: 16px;
+          }
+        }
+      }
+      & .done-address {
+        width: 100%;
+        height: 100px;
+        // display: block;
+        margin-left: 200px;
+        margin-top: 30px;
+        .pre {
+          margin-top: 5px;
+        }
+      }
+    }
+    & .done-card {
+      padding-left: 200px;
+      padding-top: 50px;
+      font-weight: normal;
+      width: auto;
+      height: 80px;
+    }
+    & .done_btn {
+      & a {
+        margin-left: 15px;
+        display: inline-block;
+        margin-top: 0px;
+        border-radius: 5px;
+        padding: 5px 10px;
+        background-color: #FF8F6D;
+        margin-bottom: 30px;
+        text-align: center;
+        line-height: 50px;
+        width: 600px;
+        height: 50px;
+        color: #ffffff;
+        font-size: 23px;
+      }
+    }
+    & .done_footer {
+
+    }
+  }
+}
