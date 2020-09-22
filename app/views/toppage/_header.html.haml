@@ -15,7 +15,7 @@
           お客様サポート
         = link_to new_product_path, class: 'headerRight-title'  do
           出品する
-        -if @address
+        -if Address.exists?(user_id: current_user.id)
           = link_to edit_user_registration_path, class: 'headerRight-mypage', "data-turbolinks": false do
             = icon('fas', 'user-cog', class: "user-cog")
         -else

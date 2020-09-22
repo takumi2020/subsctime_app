@@ -4,7 +4,6 @@ class ProductsController < ApplicationController
 
   
   def index
-    # @address = Address.exists?(user_id: current_user.id)
     @products = Product.includes(:user).page(params[:page]).per(4).order("created_at DESC")
   end
 

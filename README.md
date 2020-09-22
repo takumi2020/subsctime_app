@@ -1,24 +1,100 @@
-# README
+# Subsctime(サブスクタイム)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+新商品を一定期間借りて体験し、そのまま購入することができるアプリです。<br/>
 
-Things you may want to cover:
 
-* Ruby version
+### https://54.168.51.102/
 
-* System dependencies
+<a href="https://54.168.51.102/">
+  <img width="1440" alt="スクリーンショット 2020-09-21 12 04 46" src="https://user-images.githubusercontent.com/67685979/93730311-0e1b6800-fc03-11ea-847a-eb3d5a0d91dd.png"></a>
 
-* Configuration
+---
+### 制作背景
 
-* Database creation
+コロナによる社会情勢の変化が気になり、外出等を控えていたりしており、リモートワーク等が増え
+ITの力でなんとか社会の動きをよくしたいと思い、<br/>
+<br/>
+『個人と企業を繋ぐサービス』を考えました。<br/>
+<br/>
+消費者は、より便利なのもを手に入れることができ、
+小売業者は、人件費、仕入れ、広告にかける費用を抑えたりすることができる。
+インターネットを使用することで世の中が動く仕組みを作りたいと思いこのサービスを作ることにしました。
 
-* Database initialization
 
-* How to run the test suite
+---
 
-* Services (job queues, cache servers, search engines, etc.)
+### 工夫したポイント
+近年、Webサービスによる情報を漏洩等を加味し
+payjp のv2による非同期通信を行い、アクセスし
+トークン化した情報の保存
 
-* Deployment instructions
+---
 
-* ...
+### 機能一覧
+* ユーザー登録、ログイン  ( devise等 ) 
+* クレジット機能 ( Payjp v2 )
+* 画像アップロード ( carrierwave, minimagick, fog-aws ）
+* レビュー投稿 ( ajax )
+* ページネーション ( kaminari )
+
+---
+### インフラ
+* AWS
+	* VPC
+	* EC2
+	* Route53
+	* S3
+
+---
+### バックエンド
+Ruby 2.6.5<br/>
+Rails 6.0.3<br/>
+MariaDB 5.5.64<br/>
+
+---
+### フロントエンド
+HTML <br/>
+Haml <br/>
+CSS <br/>
+Scss <br/>
+Javascript <br/>
+jQuery <br/>
+
+---
+### 開発
+VSCode<br/>
+
+使用Image:<br/>
+* 
+* 
+
+効率化Gems:<br/>
+* Lograge ( ログフォーマット )?  など
+
+バージョン管理:<br/>
+* Git
+* GitHub
+
+---
+### テスト
+
+---
+### デプロイ
+テスト後にCapistranocでの自動デプロイ<br/>
+	
+---
+### ER図
+![ER図](https://user-images.githubusercontent.com/67685979/93732802-e7166380-fc0d-11ea-80b7-82619da18450.png)
+
+---
+### クラウドアーキテクチャ
+
+
+---
+### 課題や今後実装したい機能
+
+* 購入履歴
+* エレベーターピッチによるプロダクトページ（20秒ほどのわかりやすい機能紹介）
+* 指紋認証機能
+
+---
