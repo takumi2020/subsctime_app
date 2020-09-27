@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
+gem 'dotenv'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -79,7 +79,7 @@ gem 'payjp'
 gem 'dotenv-rails'
 gem "gretel"
 gem 'pry-rails'
-gem 'dotenv'
+
 # gem 'gon'   #Gem を使用して環境変数を JS に渡します。
 gem 'kaminari' #ページネーション
 gem "font-awesome-sass"
