@@ -6,12 +6,12 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
   
   resources :users, only: [:show, :index]
 
   root to: "products#index"
-
   resources :products do
     resources :comments, only: :create
     member do

@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-
+  before_action :check_guest, only: :delete
   require 'payjp'
 
   def new
@@ -57,5 +57,6 @@ class CardsController < ApplicationController
     end
   end
 
+  
 
 end
