@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  before_action :check_guest, only: :destroy
   before_action :set_address, only: [:edit, :update]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
@@ -35,7 +36,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       render 'new_address'
     end
+  end
 
+  def destroy
+    @user = User.find(current_user.id)
+    @user.destroy
+    if @user.destroy
+        redirect_to root_url, notice: "ユーザーは削除されました"
+    end
   end
 
   private
