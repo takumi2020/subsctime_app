@@ -284,8 +284,8 @@ Devise.setup do |config|
   Devise.setup do |config|
     require 'devise/orm/active_record'
     config.omniauth :google_oauth2,
-                    GOOGLE_CLIENT_ID='662354169416-orbtbvcmo3jevs6mqrravalpn45cf0rv.apps.googleusercontent.com', 
-                    GOOGLE_CLIENT_SECRET='S3U7G0nvxlQyrpwCOJzg9xKG',
+                    ENV['GOOGLE_CLIENT_ID'], 
+                    ENV['GOOGLE_CLIENT_SECRET'],
                     name: :google,
                     scope: %w(email),
                     skip_jwt: true

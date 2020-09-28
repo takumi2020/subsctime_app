@@ -36,6 +36,7 @@ payjp のv2による非同期通信を行い、アクセスし
 * 画像アップロード ( carrierwave, minimagick, fog-aws ）
 * レビュー投稿 ( ajax )
 * ページネーション ( kaminari )
+* GoogleアカウントのSNS認証 ( omniauth )
 
 ---
 ### インフラ

@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2020_09_15_083952) do
     t.datetime "locked_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image_name"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -77,8 +78,7 @@ ActiveRecord::Schema.define(version: 2020_09_15_083952) do
     t.string "provider"
     t.string "uid"
     t.string "token"
-    t.string "meta"
-    t.string "image_name"
+    t.text "meta"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["name"], name: "index_users_on_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"

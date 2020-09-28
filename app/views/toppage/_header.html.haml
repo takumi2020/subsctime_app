@@ -33,12 +33,12 @@
       .headerTop
         = link_to root_path,"data-turbolinks": false  do
           = image_tag 'logo_subsctime.png', class: 'logo-img'
-      .main
-        = link_to "ログイン", new_user_session_path, class: "headerTopOut", "data-turbolinks": false
-      .main2
-        = link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post
-      .headerRight
-        = link_to root_path, class: 'headerTopOut' do
-          Subsctimeとは？        
-        = link_to new_user_session_path, class: '', "data-turbolinks": false  do
-          loginアイコン
+      .header-right
+        .header-right__login.rightitle
+          = link_to "Login", new_user_session_path, class: "headerTopOut", "data-turbolinks": false
+        .header-right__guest.rightitle
+          = link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post
+        .header-right__what.rightitle
+          = link_to root_path, class: 'headerTopOut' do
+            Subsctimeとは？        
+        

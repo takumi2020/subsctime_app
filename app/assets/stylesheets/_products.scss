@@ -25,6 +25,42 @@ $tfont-size: 28px;
           width: 160px;
         }
       }
+      .header-right {
+        display: flex;
+        &__login{
+          & .headerTopOut {
+            display: inline-block;
+            width: 120px;
+            height: 2em;
+            line-height: 2em;
+            text-align: center;
+            border-radius: 5px;
+            border: 1px solid #373737;
+          }
+        }
+        &__guest {
+          background-color: #373737;
+          display: inline-block;
+          width: 250px;
+          height: 2em;
+          line-height: 2em;
+          text-align: center;
+          border-radius: 5px;
+          a {
+            color: #fff;
+          }
+        }
+        &__what {
+          line-height: 2em;;
+        }
+        & .rightitle {
+          margin-right: 50px;
+
+          &:last-child{
+            margin-right: 0;
+          }
+        }
+      }
       & .headerRight {
         &-title {
           padding: 0 20px 0 20px;
