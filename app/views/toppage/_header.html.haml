@@ -15,6 +15,8 @@
           お客様サポート
         = link_to new_product_path, class: 'headerRight-title'  do
           出品する
+        = link_to destroy_user_session_path, method: :delete, class: 'headerTopOut' do
+          ログアウト
         -if Address.exists?(user_id: current_user.id)
           = link_to edit_user_registration_path, class: 'headerRight-mypage', "data-turbolinks": false do
             = icon('fas', 'user-cog', class: "user-cog")
@@ -31,13 +33,12 @@
       .headerTop
         = link_to root_path,"data-turbolinks": false  do
           = image_tag 'logo_subsctime.png', class: 'logo-img'
-      = link_to "ログイン", new_user_session_path, class: "headerTopOut", "data-turbolinks": false
+      .main
+        = link_to "ログイン", new_user_session_path, class: "headerTopOut", "data-turbolinks": false
+      .main2
+        = link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post
       .headerRight
         = link_to root_path, class: 'headerTopOut' do
           Subsctimeとは？        
-        - if user_signed_in? && current_user
-          = link_to edit_user_registration_path, class: '', "data-turbolinks": false  do
-            マイページ
-        - else
-          = link_to new_user_session_path, class: '', "data-turbolinks": false  do
-            loginアイコン
+        = link_to new_user_session_path, class: '', "data-turbolinks": false  do
+          loginアイコン
