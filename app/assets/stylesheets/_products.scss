@@ -5,8 +5,8 @@ $tfont-size: 28px;
   max-width: $imax-width;
   margin: 0 auto;
   & .header{
-    background-color: #fff;
-    position: fixed;
+    // background-color: #fff;
+    // position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -78,9 +78,7 @@ $tfont-size: 28px;
       }
     }
   }
-  & .recommned{
-    padding-top: 100px;
-  }
+  
   & .product{
     & .product--title {
       font-weight: 600;
@@ -152,4 +150,15 @@ a {
       object-fit: cover;
     }
   }
+}
+
+
+.wrapper {
+  background-image: url(/assets/1607469_m.jpg);
+  width: 100vw;
+  background-size:cover;
+  background-color:rgba(255,255,255,0.6);
+  background-blend-mode:lighten;
+  z-index: 1;
+
 }
