@@ -288,8 +288,7 @@ Devise.setup do |config|
                     ENV['GOOGLE_CLIENT_SECRET'],
                     name: :google,
                     scope: %w(email),
-                    skip_jwt: true,
-                    callback_url: "http://subsctime.ml/users/auth/google/callback"
+                    skip_jwt: true
   end
 
 
