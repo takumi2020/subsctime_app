@@ -12,8 +12,8 @@ CarrierWave.configure do |config|
     region: 'ap-northeast-1'
   }
 
-  config.fog_directory  = 'subsctime2020'
-  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/subsctime2020'
+  config.fog_directory  = 'subsctime2021'
+  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/subsctime2021'
 end
 
 # CarrierWave.configure do |config|
