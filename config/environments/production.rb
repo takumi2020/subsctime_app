@@ -4,7 +4,8 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
   config.assets.compress = true
-  config.assets.digest = false
+  config.assets.digest = true
+  config.public_file_server.enabled = true
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
