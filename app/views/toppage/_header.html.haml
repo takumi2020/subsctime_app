@@ -6,7 +6,7 @@
           = image_tag 'logo_subsctime.png', class: 'logo-img'
           
       .headerRight
-        = link_to about_products_path, class: 'headerRight-title' do
+        = link_to about_products_path, class: 'headerRight-title', "data-turbolinks": false do
           Subsctimeとは？
         = link_to root_path, class: 'headerRight-title' do
           お客様サポート
@@ -36,6 +36,6 @@
         .header-right__guest.rightitle
           = link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post
         .header-right__what.rightitle
-          = link_to about_products_path, class: 'headerTopOut' do
+          = link_to about_products_path, class: 'headerTopOut', "data-turbolinks": false do
             Subsctimeとは？        
         
