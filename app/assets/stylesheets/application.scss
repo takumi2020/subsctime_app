@@ -11,9 +11,12 @@
 @import 'cardNew';
 @import 'flash';
 @import 'done';
+@import 'about';
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@100;300;400&display=swap');
 // @import 'user';
 
 .wrapper {
-  font-family: "Avenir Next", "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'M PLUS 1p', sans-serif;
+    // font-family:"Helvetica Neue", 'M PLUS 1p', sans-serif;
   
 }
