@@ -13,11 +13,14 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :index]
 
   root to: "products#index"
-  resources :products do
+  resources :products do 
     resources :comments, only: :create
     member do
       post 'purchase'
       get 'done'
+    end
+    collection do
+      get 'about', to: 'products#about'
     end
   end
   

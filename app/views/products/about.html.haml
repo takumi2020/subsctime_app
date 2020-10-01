@@ -1,0 +1,63 @@
+.index--container
+  = render partial: "toppage/header"
+.main-wrapper
+  .content
+    .content-box0.box
+      .box0-wrapper
+        .content-box0__img
+          = image_tag 'about/943_color.png', class: 'about1', width: '120px'
+        .content-box0__title
+          %span
+            Subsctime
+          とは？
+    .content-box1.box
+      .box1-wrapper
+        .content-box1__img
+          = image_tag 'about/253_color.png', class: 'about1', width: '200px'
+        .about-title
+          買うから
+          %span 試す
+          .about-title__text
+            近年“モノ”を所有するのではなく、必要な時だけ借りるという価値観が拡がっています。
+            しかし、まだまだサービスの広がりが狭く購入してモノが溢れてしまっているのが現状だと思います。
+            %br
+            %br
+              このアプリは新しいモノに、試してみることができるサービスです。
+
+    .content-box2.box
+      .box2-wrapper
+        .about-title 
+          お店とあなたが
+          %span 
+            繋がる
+            .about-title__text
+              今までは、お店に行き購入するという流れできたが、
+              %br
+              これからは、インターネットと通して家にいながら
+              店舗で購入しているような体験ができます。
+        .content-box1__img
+          = image_tag 'about/about2.png', class: 'about1'
+    .content-box3.box
+      .box3-wrapper
+        .content-box1__img
+          = image_tag 'about/ss54.png', class: 'about1', width: '500px'
+          .img2
+            = image_tag 'about/aa22.png', class: 'about22', width: '90px'
+        .about-title
+          感想の
+          %span 
+            共有
+          .about-title__text
+            買いたいモノの感想を共有することができるので迷っていても安心して借りることができます。
+            %br 使ってみての感想なのでリアルな声が聞けます。
+
+
+
+    .content-box4.box
+      .box4-wrapper
+        .box4-title
+          = link_to new_user_registration_path,"data-turbolinks": false, class: 'aboutnew' do
+            新規会員登録
+        .editCopy
+          %small Copyright &copy; 2020 HAMADA TAKUMI. All Right Reserved.
+        

@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
 
   
   def index
-    @products = Product.includes(:user).page(params[:page]).per(4).order("created_at DESC")
+    @products = Product.includes(:user).page(params[:page]).per(12).order("created_at DESC")
   end
 
   def new
@@ -81,7 +81,8 @@ class ProductsController < ApplicationController
     redirect_to root_path
   end
 
-
+  def about
+  end
   
   
   private
