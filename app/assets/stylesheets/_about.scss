@@ -1,0 +1,189 @@
+.main-wrapper {
+  & .content {
+    background-image: url("/assets/1607469_m.jpg");
+    background-size:100%;
+    background: 0px -110px;
+    height: 100vh;
+    &-box0{
+      position: relative;
+      width: 100vw;
+      height: calc( 100vh - 100px);
+      background-image: url("/assets/about/background15.png");
+      background-size: 68%;
+      background-repeat: no-repeat;  
+      background-position: center center;  
+      & .box0-wrapper {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 240px;
+        left: 415px;
+        & .content-box0__img {
+          opacity: 0.7;
+          margin-right: 35px;
+        }
+        & .content-box0__title {
+          font-size: 30px;
+          & span {
+            letter-spacing: 0.4rem;
+            font-size:55px;
+            font-weight: 500;
+            text-shadow:1px 0 0 #fff,0 1px 0 #fff,-1px 0 0 #fff,0 -1px 0 #fff,3px 3px 0 #fff;
+            color:#ec6d72;
+          }
+        }
+
+      }
+    }
+    &-box1 {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background-color: #393b44;
+      & .box1-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        display: flex;
+        & .content-box1__img {
+          width: 320px;
+          height: 320px;
+          background-color: #fff;
+          opacity: 0.9;
+          margin-right: 80px;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        & .about-title {
+          font-size: 70px;
+          letter-spacing: 0.4rem;
+          color: #f2f2f2;
+          & span {
+            color: #fe7171;
+          }
+          &__text {
+            margin-top: 40px;
+            width: 500px;
+            font-size: 16px;
+            letter-spacing: 0.1em;
+          }
+        }
+      }
+    }
+    &-box2 {
+      position: relative;
+      background-image: url("/assets/1607469_m.jpg");
+      background-color:rgba(255,255,255,0.6);
+      background-blend-mode:lighten;
+      width: 100vw;
+      height: 100vh;
+      & .box2-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        display: flex;
+        & .about-title {
+          margin-right: 50px;
+          font-size: 70px;
+          letter-spacing: 0rem;
+          text-shadow:
+          1px 0 0 black,
+          0 1px 0 black,
+          -1px 0 0 black,
+          0 -1px 0 black;
+          color: #ffffff;
+          & span {
+            color: #fe7171;
+            text-shadow: none;
+          }
+          &__text {
+            color: #000000;
+            margin-top: 50px;
+            width: 500px;
+            font-size: 16px;
+            letter-spacing: 0.1em;
+          }
+        }
+      }
+    }
+    &-box3 {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background-color: #393b44;
+      & .box3-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 54%;
+        transform: translateY(-50%) translateX(-50%);
+        display: flex;
+        & .content-box1__img {
+          margin-right: 80px;
+          & .img2 {
+            position: relative;
+            & .about22 {
+              position: absolute;
+              top: -220;
+              left: -20;
+            }
+          }
+        }
+        & .about-title {
+          width: 500px;
+          font-size: 70px;
+          letter-spacing: 0.4rem;
+          color: #f2f2f2;
+          & span {
+            color: #fe7171;
+          }
+          &__text {
+            margin-top: 40px;
+            width: 400px;
+            font-size: 16px;
+            letter-spacing: 0.1em;
+          }
+        }
+      }
+    }
+    &-box4 {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background-image: url("/assets/1607469_m.jpg");
+      background-color:rgba(255,255,255,0.6);
+      background-blend-mode:lighten;
+      & .box4-wrapper {
+
+        & .box4-title {
+          .aboutnew {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            line-height: 90px;
+            border: 1px solid #000000;
+            padding: 30px 200px;
+            letter-spacing: 0.3em;
+            border-radius: 15px;
+            font-size: 40px;
+            font-weight: 900;
+            transition: 200ms ease-out;
+            &:hover {
+              color: #ffffff;
+              background-color: #393b44;
+            }
+          }
+        }
+        & .editCopy {
+          position: absolute;
+          bottom: 2;
+          left: 35vw;
+        }
+      }
+    }
+  }
+}
