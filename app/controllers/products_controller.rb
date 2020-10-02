@@ -88,7 +88,9 @@ class ProductsController < ApplicationController
   private
 
   def set_address
+    if user_signed_in?
     @address = Address.exists?(user_id: current_user.id)
+    end
   end
 
   def product_params

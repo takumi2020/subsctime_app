@@ -15,11 +15,12 @@
           -# %p.title 数量
           -# = form_for(@product) do |f|
           -#   = f.text_field :price, class: 'from_price'
-          = link_to done_product_path, class: 'submitbtn' do
-            .submitbtn-text
-              = icon('fas', 'shopping-cart', class: "cart__icon")
-              .submitbtn-text__title
-                購入する
+          - if user_signed_in?
+            = link_to done_product_path, class: 'submitbtn' do
+              .submitbtn-text
+                = icon('fas', 'shopping-cart', class: "cart__icon")
+                .submitbtn-text__title
+                  購入する
   .show-content
     .show-content__title 特徴
     .show-content__text
