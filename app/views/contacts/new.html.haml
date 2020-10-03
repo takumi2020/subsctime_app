@@ -1,0 +1,11 @@
+%h5 お問い合わせ
+
+= form_with model: @contact do |f|
+    = f.label :お名前
+    = f.text_field :name
+    = f.label :アドレス
+    = f.text_field :mail
+    = f.label :お問い合わせ内容
+    = f.text_field :message
+    = f.submit '送信する'
+
