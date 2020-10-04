@@ -1,0 +1,17 @@
+.index--container
+    = render partial: "toppage/header"
+
+%h5 お問い合わせ
+
+= form_with model: @contact do |f|
+    .form-label
+        = f.label :お名前
+    %p= f.text_field :name
+    .form-label 
+        = f.label :アドレス
+    %p= f.text_field :mail
+    .form-label 
+        = f.label :お問い合わせ内容
+    %p= f.text_field :message
+    %p= f.submit '送信する'
+
