@@ -19,5 +19,17 @@ describe User do
       expect(user.errors[:password]).to include("を入力してください")
     end
 
+    it "password確認がない場合は登録できないこと" do
+      user = User.new(name: "test", email: "kkk@gmail.com", password: "0000aaaa", password_confirmation: "")
+      user.valid?
+      expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
+    end
+
+    it "password一致しない場合は登録できないこと" do
+      user = User.new(name: "test", email: "kkk@gmail.com", password: "0000aaaa", password_confirmation: "1111aaaa")
+      user.valid?
+      expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
+    end
+
   end
 end
