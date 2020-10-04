@@ -6,6 +6,7 @@ class User < ApplicationRecord
           :omniauthable, omniauth_providers: %i(google)
           # :trackable,
 
+          
   validates :name, presence: true
   validates :email, presence: true, uniqueness: { case_sensitive: true }, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/i }
   validates :password, presence: true, length: { minimum: 7 }, format: { with: /(?=.*\d+.*)(?=.*[a-zA-Z]+.*)./ }
