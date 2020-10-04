@@ -13,6 +13,24 @@ describe User do
       expect(user.errors[:email]).to include("を入力してください")
     end
 
+    it "不正なアドレス場合は登録できないこと" do
+      user = User.new(name: "test", email: "kkkgmail.com", password: "0000aaaa", password_confirmation: "0000aaaa")
+      user.valid?
+      expect(user.errors[:email]).to include("は不正な値です")
+    end
+
+    it "不正なアドレス場合は登録できないこと" do
+      user = User.new(name: "test", email: "kkk@gmailcom", password: "0000aaaa", password_confirmation: "0000aaaa")
+      user.valid?
+      expect(user.errors[:email]).to include("は不正な値です")
+    end
+
+    it "不正なアドレス場合は登録できないこと" do
+      user = User.new(name: "test", email: "@gmail.com", password: "0000aaaa", password_confirmation: "0000aaaa")
+      user.valid?
+      expect(user.errors[:email]).to include("は不正な値です")
+    end
+
     it "passwordがない場合は登録できないこと" do
       user = User.new(name: "test", email: "kkk@gmail.com", password: "", password_confirmation: "0000aaaa")
       user.valid?
