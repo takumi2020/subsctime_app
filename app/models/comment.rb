@@ -3,6 +3,6 @@ class Comment < ApplicationRecord
   belongs_to :user  # usersテーブルとのアソシエーション
 
 
-  validates :text, presence: true, length: {maximum: 20}
+  validates :text, presence: true, length: {maximum: 40}
 
 end
