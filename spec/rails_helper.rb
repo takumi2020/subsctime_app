@@ -36,6 +36,8 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   #FactoryBotの記述省略
 
+  config.include Devise::Test::IntegrationHelpers, type: :request #sign_inヘルパーを提供してくれます
+
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
