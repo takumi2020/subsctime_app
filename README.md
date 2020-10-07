@@ -49,7 +49,8 @@ googleAPIを利用したSNS認証でのサインアップを行い、ログイ�
 	* EC2
 	* Route53
 	* S3
-	* RDS
+	* RDS for MySQL
+	* ALB
 
 ---
 ### バックエンド
