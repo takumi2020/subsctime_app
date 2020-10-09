@@ -6,12 +6,12 @@
     = form_with model: @contact , class: 'ContactForm', local: true do |f|
         .form-label
             = f.label :お名前
-        %p= f.text_field :name, { class: 'field'}
+        %p= f.text_field :name, { class: 'field', autocomplete: "off"}
         .form-label 
             = f.label :アドレス
-        %p= f.text_field :mail, { class: 'field'}
+        %p= f.text_field :mail, { class: 'field', autocomplete: "off"}
         .form-label 
             = f.label :お問い合わせ内容
-        %p= f.text_area :message, { class: 'field'}
+        %p= f.text_area :message, { class: 'field', autocomplete: "off"}
         %p= f.submit '送信する'
 
