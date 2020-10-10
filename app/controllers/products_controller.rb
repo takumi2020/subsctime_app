@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_product, only: [:edit, :show, :purchase, :done]
   before_action :set_address, only: [:done, :show]
 
@@ -34,6 +35,9 @@ class ProductsController < ApplicationController
   
   def edit
     @product = Product.find(params[:id])
+    if @product.user != current_user
+      redirect_to root_path, alert: '不正なアクセスです'
+    end
   end
 
   def update
