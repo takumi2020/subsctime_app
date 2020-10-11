@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_product, only: [:edit, :show, :purchase, :done]
+  before_action :set_product, only: [:edit, :show, :purchase, :done,:update, :destroy]
   before_action :set_address, only: [:done, :show]
 
   
@@ -23,7 +23,6 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
     if @product.destroy
       # flash[:success] = 'Object was successfully deleted.'
       redirect_to root_path
@@ -34,21 +33,19 @@ class ProductsController < ApplicationController
   end
   
   def edit
-    @product = Product.find(params[:id])
     if @product.user != current_user
       redirect_to root_path, alert: '不正なアクセスです'
     end
   end
 
   def update
-    @product = Product.find(params[:id])
-      if @product.update(product_params)
-        flash[:success] = "Object was successfully updated"
-        redirect_to product_path
-      else
-        # flash[:error] = "Something went wrong"
-        # render 'edit'
-      end
+    if @product.update(product_params)
+      flash[:success] = "Object was successfully updated"
+      redirect_to product_path
+    else
+      # flash[:error] = "Something went wrong"
+      # render 'edit'
+    end
   end
 
   def show
