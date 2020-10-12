@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     end
     collection do
       get 'about', to: 'products#about'
+      get 'search'
     end
   end
   

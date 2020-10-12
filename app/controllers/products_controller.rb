@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :set_product, only: [:edit, :show, :purchase, :done,:update, :destroy]
   before_action :set_address, only: [:done, :show]
 
@@ -84,8 +84,13 @@ class ProductsController < ApplicationController
 
   def about
   end
-  
-  
+
+  def search
+    @products = Product.search(params[:keyword])
+  end
+
+
+
   private
 
   def set_address
