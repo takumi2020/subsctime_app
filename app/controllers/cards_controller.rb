@@ -1,5 +1,7 @@
 class CardsController < ApplicationController
   before_action :check_guest, only: :delete
+  before_action :set_curd, only: [:delete, :show]
+
   require 'payjp'
 
   def new
@@ -35,7 +37,6 @@ class CardsController < ApplicationController
 
 
   def show
-    card = Card.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to action: "new" 
     else
@@ -46,7 +47,6 @@ class CardsController < ApplicationController
   end
 
   def delete #PayjpとCardデータベースを削除します
-    card = Card.find_by(user_id: current_user.id)
     if card.blank?
     else
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
@@ -57,6 +57,11 @@ class CardsController < ApplicationController
     end
   end
 
-  
+  private
+
+  def set_curd
+    card = Card.find_by(user_id: current_user.id)
+  end
+
 
 end
