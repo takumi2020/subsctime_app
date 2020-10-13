@@ -51,6 +51,7 @@ class ProductsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @product.comments.includes(:user)
+    # @favorite = Favorite.find_by(product_id: params[:product_id])
   end
 
   def done
