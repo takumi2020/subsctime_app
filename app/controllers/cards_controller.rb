@@ -5,9 +5,6 @@ class CardsController < ApplicationController
   require 'payjp'
 
   def new
-    # gon.payjp_access_key = ENV['PAYJP_PRIVATE_KEY']
-    # card = Card.where(user_id: current_user.id)
-    # redirect_to action: "show" if card.exists?
   end
 
   def pay
@@ -46,7 +43,7 @@ class CardsController < ApplicationController
     end
   end
 
-  def delete #PayjpとCardデータベースを削除します
+  def delete 
     if card.blank?
     else
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"]

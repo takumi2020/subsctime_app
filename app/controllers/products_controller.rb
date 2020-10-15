@@ -43,15 +43,12 @@ class ProductsController < ApplicationController
       flash[:success] = "Object was successfully updated"
       redirect_to product_path
     else
-      # flash[:error] = "Something went wrong"
-      # render 'edit'
     end
   end
 
   def show
     @comment = Comment.new
     @comments = @product.comments.includes(:user)
-    # @favorite = Favorite.find_by(product_id: params[:product_id])
   end
 
   def done
