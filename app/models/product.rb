@@ -1,7 +1,9 @@
 class Product < ApplicationRecord
   mount_uploader :img, ImgUploader
+
   validates :product_name, presence: true
   belongs_to :user
+  has_many :favorites, dependent: :destroy
   has_many :comments
 
   

@@ -21,6 +21,18 @@
                 = icon('fas', 'shopping-cart', class: "cart__icon")
                 .submitbtn-text__title
                   購入する
+        - if current_user.already_favorited?(@product)
+          .favorite_btn
+            = link_to product_favorites_path(@product), method: :delete do
+              = icon('fas', 'heart', class: "heart")
+        - else
+          .favorite_btn
+            = link_to product_favorites_path(@product), method: :post do
+              -# = icon('far', 'fa-heart', class: "heart")
+              = icon('far', 'heart', class: "heart")
+              
+        .favorite_count
+          = @product.favorites.count
   .show-content
     .show-content__title 特徴
     .show-content__text

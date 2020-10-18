@@ -21,7 +21,9 @@ Rails.application.routes.draw do
     end
     collection do
       get 'about', to: 'products#about'
+      get 'search'
     end
+    resource :favorites, only: [:create, :destroy]
   end
   
   resources :cards, only: [:new, :show,] do

@@ -13,9 +13,14 @@ class User < ApplicationRecord
 
   has_many :products
   has_many :comments
+  has_many :favorites, dependent: :destroy
   
   has_one :cards
   has_one :address, dependent: :destroy
+
+  def already_favorited?(product)
+    self.favorites.exists?(product_id: product.id)
+  end
     
   protected
   def self.find_for_google(auth)
@@ -39,4 +44,6 @@ class User < ApplicationRecord
     # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end
   end
+
+  
 end
