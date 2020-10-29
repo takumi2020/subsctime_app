@@ -15,7 +15,6 @@ class ProductsController < ApplicationController
   def create
     @product = Product.create(product_params)
     if @product.save
-      # flash[:success] = "Object successfully created"
       redirect_to root_path
     else
     end
