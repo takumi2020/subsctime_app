@@ -5,9 +5,7 @@ class ApplicationController < ActionController::Base
   
   def check_guest
     user = User.find(current_user.id)
-    if user.email == 'guest@example.com'
-      redirect_to root_path, alert: 'ゲストユーザーは削除できません。'
-    end
+    redirect_to root_path, alert: 'ゲストユーザーは削除できません。' if user.email == 'guest@example.com'
   end
 
   protected
