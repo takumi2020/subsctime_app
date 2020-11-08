@@ -23,7 +23,6 @@ class ProductsController < ApplicationController
 
   def destroy
     if @product.destroy
-      # flash[:success] = 'Object was successfully deleted.'
       redirect_to root_path
     else
       flash[:error] = 'Something went wrong'
