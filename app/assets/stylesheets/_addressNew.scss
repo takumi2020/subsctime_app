@@ -11,6 +11,13 @@
 	position: relative;
 }
 .newfooter {
+  & .frontTitle {
+    color: #222;
+    font-size: 22px;
+    text-align: center;
+    margin: 10px 0 30px;
+    line-height: 1.5;
+  }
   &--btn {
     text-align: center;
     width: 100%;
