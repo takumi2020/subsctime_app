@@ -5,7 +5,6 @@ worker_processes 1
 # currentを指定
 working_directory "#{app_path}/current"
 
-# それぞれ、sharedの中を参照するよう変更
 listen "#{app_path}/shared/tmp/sockets/unicorn.sock"
 
 pid "#{app_path}/shared/tmp/pids/unicorn.pid"
@@ -14,7 +13,6 @@ stdout_path "#{app_path}/shared/log/unicorn.stdout.log"
 
 timeout 60
 
-#以下は応用的な設定なので説明は割愛
 
 preload_app true
 GC.respond_to?(:copy_on_write_friendly=) && GC.copy_on_write_friendly = true
